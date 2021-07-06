@@ -1,243 +1,235 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 * {
-    font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
-    box-sizing: border-box;
-    margin: 0 auto;
-    border: 1px solid black;
-    width: 80%;
-    height: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border: 1px solid black;
+  width: 80%;
+  height: 100%;
 }
-
 
 /* HEADER */
 
 header {
-    height: 100px;
-    background-color: lightgray;
+  height: 100px;
+  background-color: lightgray;
 }
 
-
 /* FIN HEADER */
-
 
 /* BREADCRUMBS */
 
 .breadcrumb {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 100px;
 }
 
 .flexcrumb {
-    flex-basis: 25%;
+  flex-basis: 25%;
 }
 
 .breadcrumb-img {
-    height: 20px;
+  height: 20px;
 }
 
 .profile {
-    margin: 5%;
-    font-family: sans-serif;
+  margin: 5%;
+  font-family: sans-serif;
 }
 
-
 /* FIN BREADCRUMBS */
-
 
 /* COMMON INPUTS FORM */
 
 .inputText {
-    height: 30px;
-    width: 350px;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin: 12px 0px 30px 0px;
+  height: 30px;
+  width: 350px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 12px 0px 30px 0px;
 }
 
 .clearForm {
-    border-radius: 3px;
-    height: 30px;
-    border: 2px solid black;
-    font-weight: bold;
+  border-radius: 3px;
+  height: 30px;
+  border: 2px solid black;
+  font-weight: bold;
 }
 
 .next {
-    margin: 20px;
-    background-color: black;
-    border: 1px solid black;
-    color: white;
-    height: 30px;
-    width: 60px;
-    border-radius: 3px;
+  margin: 20px;
+  background-color: black;
+  border: 1px solid black;
+  color: white;
+  height: 30px;
+  width: 60px;
+  border-radius: 3px;
 }
 
 textarea {
-    border: 2px solid black;
-    border-radius: 3px;
+  border: 2px solid black;
+  border-radius: 3px;
 }
 
 button {
-    border: 2px solid black;
-    border-radius: 3px;
-    cursor: pointer;
+  border: 2px solid black;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-
 /* FIN INPUTS COMMON FORM */
-
 
 /* PRODUCT */
 
 .product {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .product-left {
-    width: 50%;
+  width: 50%;
 }
 
 .product-right {
-    width: 50%;
+  width: 50%;
 }
 
 .image-game {
-    width: 80%;
+  width: 80%;
 }
 
 .editions img {
-    width: 20%;
-    max-height: 120px;
-    cursor: pointer;
-    object-fit: contain;
+  width: 20%;
+  max-height: 120px;
+  cursor: pointer;
+  object-fit: contain;
 }
-
 
 /* FIN SECTION PRODUCT */
 
+/*SECTION ADDRESS*/
+#telForm {
+  max-width: 5.5%;
+}
+/*FIN SECTION ADDRESS*/
 
 /* SECTION SHIPPING */
 
 .shipping-container {
-    position: relative;
+  position: relative;
 }
 
 .shipping-type {
-    padding: 1em 0 1em 2em;
+  padding: 1em 0 1em 2em;
 }
 
 .button-select-image {
-    display: block;
-    padding: 0.5em 2em;
+  display: block;
+  padding: 0.5em 2em;
 }
 
 .time-shipping {
-    position: absolute;
-    width: 160px;
-    background-color: #f5f5f5;
-    height: 6em;
-    border: 1px solid grey;
-    padding: 1em;
-    border-radius: 3px;
-    top: 3%;
-    right: 3%;
+  position: absolute;
+  width: 160px;
+  background-color: #f5f5f5;
+  height: 6em;
+  border: 1px solid grey;
+  padding: 1em;
+  border-radius: 3px;
+  top: 3%;
+  right: 3%;
 }
 
 .select-option-shipping {
-    padding: 1em 0em;
+  padding: 1em 0em;
 }
 
 .estimated-delivery {
-    color: #777575;
+  color: #777575;
 }
 
 .date-delivery {
-    display: none;
+  display: none;
 }
 
 .gift-message {
-    padding: 1em 0em;
-    display: block;
+  padding: 1em 0em;
+  display: block;
 }
 
 .gift-message-hidden {
-    display: none !important;
+  display: none !important;
 }
 
 .text-gift {
-    margin: 1em 0em;
+  margin: 1em 0em;
 }
 
 .image-icon {
-    width: 15px;
-    padding-left: 5px;
+  width: 15px;
+  padding-left: 5px;
 }
 
 .buttons-form {
-    float: right;
-    clear: both;
+  float: right;
+  clear: both;
 }
 
 .clearfix {
-    clear: both;
+  clear: both;
 }
 
-
 /* FIN SECTION SHIPPING */
-
 
 /*Finish Div*/
 
 .background-div {
-    background-color: lightgrey;
-    padding: 20px 80px;
+  background-color: lightgrey;
+  padding: 20px 80px;
 }
 
 .div-flex {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .time-warning {
-    display: none;
+  display: none;
 }
 
 .finished-order {
-    display: none;
-    margin-bottom: 30px;
+  display: none;
+  margin-bottom: 30px;
 }
 
 .purchase-div {
-    background-color: white;
-    flex-basis: 60%;
-    margin-right: 50px;
-    padding: 30px;
+  background-color: white;
+  flex-basis: 60%;
+  margin-right: 50px;
+  padding: 30px;
 }
 
 .order-div {
-    background-color: white;
-    flex-basis: 40%;
-    padding: 30px;
+  background-color: white;
+  flex-basis: 40%;
+  padding: 30px;
 }
 
-
 /* FIN FINISH DIV*/
-
 
 /* FOOTER */
 
 footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100px;
-    background-color: lightgray;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100px;
+  background-color: lightgray;
 }
-
 
 /* FIN FOOTER */
