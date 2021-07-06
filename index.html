@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Wizard</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <header>
+        Logo
+    </header>
+    <div class="container">
+        <div class="product">
+            <div class="product-left">
+                <div class="thumbnails-images-product"></div>
+                <div class="image-big-product"><img class="image-game" src="./images/pc_caratula.jpg" alt="assassin creed"></div>
+            </div>
+            <div class="product-right">
+                <p>Assassin Creed</p>
+                <p>Price</p>
+                <p>59.95€</p>
+                <p>Version</p>
+                <select>
+                    <option value="pc">PC Version</option>
+                    <option value="xbox">XBOX Version</option>
+                    <option value="play">PLAY STATION Version</option>
+                    <!--<option value="switch">SWITCH Version</option>-->
+                </select>
+                <p>Editions</p>
+                <div class="editions">
+                    <img src="./images/pc_caratula.jpg" alt="">
+                    <img src="./images/pc_deluxe_caratula.jpg" alt="">
+                    <img src="./images/pc_gold_caratula.jpg" alt="">
+                    <img src="./images/pc_ultimate_caratula.jpg" alt="">
+                </div>
+                <button class="next">Buy</button>
+            </div>
+        </div>
+        <div class="profile">
+            <nav class="breadcrumb">
+                <div class="flexcrumb">
+                    <p>Profile</p>
+                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+                <div class="flexcrumb">
+                    <p>Address</p>
+                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+                <div class="flexcrumb">
+                    <p>Shipping</p>
+                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+                <div class="flexcrumb">
+                    <p>Finish</p>
+                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+            </nav>
+            <h1 class="headingProfile"></h1>Profile</h1>
+            <label>Username</label> <br />
+
+            <input type="text" class="inputText" /> <br />
+            <label>Email</label><br />
+
+            <input type="text" class="inputText" /><br />
+            <label>Password</label><br />
+
+            <input type="text" class="inputText" /><br />
+            <label>Confirm Password</label><br />
+
+            <input type="text" class="inputText" /><br />
+            <button class="clearForm">Clear Form</button>
+            <button class="next">Next</button>
+        </div>
+        <div class="address">
+            <section class="breadcrumb">
+                <p>Profile</p>
+                <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
+                <p>Address</p>
+                <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
+                <p>Shipping</p>
+                <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
+                <p>Finish</p>
+                <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
+            </section>
+        </div>
+        <div class="shipping">
+            <nav class="breadcrumb">
+                <div class="flexcrumb">
+                    <p>Profile</p>
+                    <img src="/css/clipboard-check-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+                <div class="flexcrumb">
+                    <p>Address</p>
+                    <img src="/css/clipboard-check-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+                <div class="flexcrumb">
+                    <p>Shipping</p>
+                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+                <div class="flexcrumb">
+                    <p>Finish</p>
+                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+            </nav>
+            <div class="shipping-container">
+                <form id="shipping-form">
+                    <div class="shipping-type">
+                        <h1>Shipping</h1>
+                        <h3>Shipping type</h3>
+                        <div class="select-option-shipping">
+                            <input type="radio" name="shipping" value="free">
+                            <label for="html">Free shipment (72H)</label>
+                        </div>
+                        <div class="select-option-shipping">
+                            <input type="radio" name="shipping" value="extra">
+                            <label for="css">Extra shipping (48H)</label><strong> 4,99€</strong></span>
+                        </div>
+                        <div class="select-option-shipping">
+                            <input type="radio" name="shipping" value="premium">
+                            <label for="javascript">Premium (24H)</label><strong> 9,99€</strong></span>
+                        </div>
+                        <div class="select-option-shipping">
+                            <label><input type="checkbox" class="check-gift"> Is it a gift?</label>
+                        </div>
+                        <div class="date-delivery date-delivery-hidden">
+                            <p><strong>Your order will arrive</strong></p>
+                            <p class="estimated-delivery">ESTIMATE DELIVERY DATE:</p>
+                            <p>Between <strong class="between">21 de Julio de 2020</strong> and <strong class="until">21 de Julio 2020 20:00H</strong></p>
+                        </div>
+                        <div class="gift-message gift-message-hidden">
+                            <label>Gift Message:</label><br>
+
+                            <textarea class="text-gift" rows="10" cols="40"></textarea>
+                            <button class="button-select-image"> Select image <img src="/css/images-solid.svg" class="image-icon" alt=""></button>
+                        </div>
+                        <div class="buttons-form">
+                            <button class="clearForm" id="clear-form-shipping">Clear Form</button>
+                            <button class="next" id="next-shipping">Next</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+                <div class="time-shipping">
+                    <p>You stared registering
+                        <span><strong>3 min ago.</strong></span>
+                    </p>
+                    <p> Hurry up!</p>
+                </div>
+            </div>
+        </div>
+        <div class="finish">
+            <nav class="breadcrumb">
+                <div class="flexcrumb">
+                    <p>Profile</p>
+                    <img src="/css/clipboard-check-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+                <div class="flexcrumb">
+                    <p>Address</p>
+                    <img src="/css/clipboard-check-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+                <div class="flexcrumb">
+                    <p>Shipping</p>
+                    <img src="/css/clipboard-check-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+                <div class="flexcrumb">
+                    <p>Finish</p>
+                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
+                </div>
+            </nav>
+            <div class="background-div">
+                <div class="time-warning">
+                    <p>You started registering <b>4 minutes ago</b>.</p>
+                    <p>Hurry up!</p>
+                </div>
+                <div class="finished-order">
+                    <h2>Your order is complete! 🥇🎊</h2>
+                    <p>Thank you for shopping with us.</p>
+                </div>
+                <div class="div-flex">
+                    <div class="purchase-div">
+                        <h2>Your Purchase</h2>
+                        <div>
+                            <img src="" alt="">
+                            <div>
+                                <h3>Selected Videogame</h3>
+                                <p>Version:</p>
+                                <p>Platform</p>
+                                <p>Estimate Deliver Date:</p>
+                                <p>Between</p>
+                                <p>And</p>
+                            </div>
+                        </div>
+                        <div id="cbox-button">
+                            <input type="checkbox" id="cbox1" value="Terms and Conditions">
+                            <label for="cbox1" id="labl1">I have read and I accept the terms and conditions</label>
+                            <input type="button" id="buy-now" value="Buy now">
+                        </div>
+                    </div>
+                    <div class="order-div">
+                        <h2>Your order</h2>
+                        <hr>
+                        <p>Article:</p>
+                        <p>Shipping:</p>
+                        <hr>
+                        <p>Total:</p>
+                    </div>
+                </div>
+                <div class="finished-order">
+                    <p>Your shopping process took</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
