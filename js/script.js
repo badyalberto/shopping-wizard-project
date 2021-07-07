@@ -1,56 +1,61 @@
 // PRODUCT
-document.querySelector("#select-option").addEventListener("change", versionGame);
+document
+    .querySelector("#select-option")
+    .addEventListener("change", versionGame);
 
 function addEventsImages() {
-    let imageVersions = document
-        .querySelector("#editions").children;
+    let imageVersions = document.querySelector("#editions").children;
 
     for (let image of imageVersions) {
-        image.addEventListener('click', changeContentImagesLeftPrice);
+        image.addEventListener("click", changeContentImagesLeftPrice);
     }
 }
 addEventsImages();
 
-
 function changeContentImagesLeftPrice(e) {
-    let version = e.target.getAttribute('game-version');
+    let version = e.target.getAttribute("game-version");
     let imageVersions = document.querySelector("#editions").children;
-    let thumbnailsImages = document.querySelector('.thumbnails-images-product').children;
+    let thumbnailsImages = document.querySelector(
+        ".thumbnails-images-product"
+    ).children;
 
     //reset version games images
     for (let image of imageVersions) {
-        image.classList.remove('active');
+        image.classList.remove("active");
     }
 
     //Reset thumbsnails Images
     for (let image of thumbnailsImages) {
-        image.classList.remove('active');
+        image.classList.remove("active");
     }
 
     //add class active first child of .thumbnails-images-product
-    thumbnailsImages[0].classList.add('active');
+    thumbnailsImages[0].classList.add("active");
 
     switch (version) {
-        case 'normal':
-            document.querySelector('#price').textContent = '39.95€';
+        case "normal":
+            document.querySelector("#price").textContent = "39.95€";
             break;
-        case 'deluxe':
-            document.querySelector('#price').textContent = '49.95€';
+        case "deluxe":
+            document.querySelector("#price").textContent = "49.95€";
             break;
-        case 'gold':
-            document.querySelector('#price').textContent = '59.95€';
+        case "gold":
+            document.querySelector("#price").textContent = "59.95€";
             break;
-        case 'ultimate':
-            document.querySelector('#price').textContent = '69.95€';
+        case "ultimate":
+            document.querySelector("#price").textContent = "69.95€";
             break;
         default:
             break;
     }
-    e.target.classList.toggle('active');
-    let opt = document.querySelector('#select-option').value;
-    document.querySelector('.image-game').setAttribute('src', `./images/${opt}_${version}_caratula.jpg`);
-    document.querySelector('.image-thumbnails').setAttribute('src', `./images/${opt}_${version}_caratula.jpg`);
-
+    e.target.classList.toggle("active");
+    let opt = document.querySelector("#select-option").value;
+    document
+        .querySelector(".image-game")
+        .setAttribute("src", `./images/${opt}_${version}_caratula.jpg`);
+    document
+        .querySelector(".image-thumbnails")
+        .setAttribute("src", `./images/${opt}_${version}_caratula.jpg`);
 }
 
 function versionGame(e) {
@@ -70,11 +75,11 @@ function versionGame(e) {
     }
 }
 
-function changeContentImagesVersion(version = '') {
+function changeContentImagesVersion(version = "") {
     let editions = document.querySelector("#editions");
     editions.innerHTML = "";
 
-    if (version !== '') {
+    if (version !== "") {
         let img1 = document.createElement("img");
         let img2 = document.createElement("img");
         let img3 = document.createElement("img");
@@ -83,14 +88,14 @@ function changeContentImagesVersion(version = '') {
         img2.setAttribute("src", `./images/${version}_deluxe_caratula.jpg`);
         img3.setAttribute("src", `./images/${version}_gold_caratula.jpg`);
         img4.setAttribute("src", `./images/${version}_ultimate_caratula.jpg`);
-        img1.setAttribute('class', 'image-version-game active');
-        img2.setAttribute('class', 'image-version-game');
-        img3.setAttribute('class', 'image-version-game');
-        img4.setAttribute('class', 'image-version-game');
-        img1.setAttribute('game-version', 'normal');
-        img2.setAttribute('game-version', 'deluxe');
-        img3.setAttribute('game-version', 'gold');
-        img4.setAttribute('game-version', 'ultimate');
+        img1.setAttribute("class", "image-version-game active");
+        img2.setAttribute("class", "image-version-game");
+        img3.setAttribute("class", "image-version-game");
+        img4.setAttribute("class", "image-version-game");
+        img1.setAttribute("game-version", "normal");
+        img2.setAttribute("game-version", "deluxe");
+        img3.setAttribute("game-version", "gold");
+        img4.setAttribute("game-version", "ultimate");
         editions.append(img1);
         editions.append(img2);
         editions.append(img3);
@@ -99,26 +104,35 @@ function changeContentImagesVersion(version = '') {
     }
 }
 
-var thumbnails = document.querySelector('.thumbnails-images-product').children;
+var thumbnails = document.querySelector(".thumbnails-images-product").children;
 
 for (let image of thumbnails) {
-    image.addEventListener('click', showBigImage);
+    image.addEventListener("click", showBigImage);
 }
 
 function showBigImage(e) {
     for (let image of thumbnails) {
-        image.classList.remove('active');
+        image.classList.remove("active");
     }
 
-    if (e.target.getAttribute('id-img') === "0") {
-        let platform = document.querySelector('#select-option').value;
-        let version = document.querySelector('.image-version-game.active').getAttribute('game-version');
-        document.querySelector('.image-game').setAttribute('src', `./images/${platform}_${version}_caratula.jpg`);
+    if (e.target.getAttribute("id-img") === "0") {
+        let platform = document.querySelector("#select-option").value;
+        let version = document
+            .querySelector(".image-version-game.active")
+            .getAttribute("game-version");
+        document
+            .querySelector(".image-game")
+            .setAttribute("src", `./images/${platform}_${version}_caratula.jpg`);
     } else {
-        document.querySelector('.image-game').setAttribute('src', `./images/screen${e.target.getAttribute('id-img')}.jpg`);
+        document
+            .querySelector(".image-game")
+            .setAttribute(
+                "src",
+                `./images/screen${e.target.getAttribute("id-img")}.jpg`
+            );
     }
 
-    e.target.classList.toggle('active');
+    e.target.classList.toggle("active");
 }
 //FIN PRODUCT
 
@@ -190,10 +204,7 @@ function nextShipping(e) {
             correctForm = true;
         }
     }
-    if (!correctForm) {
-
-    }
-
+    if (!correctForm) {}
 }
 //FIN SHIPPING
 let $profile = document.querySelector(".profile");
