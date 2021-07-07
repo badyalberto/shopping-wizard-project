@@ -195,8 +195,6 @@ button {
 
 .active {
     opacity: 1;
-    width: 80%;
-    margin-left: 5%;
 }
 
 .editions img {
