@@ -17,6 +17,7 @@ body {
 header {
     height: 100px;
     background-color: lightgray;
+    margin-bottom: 5%;
 }
 
 
@@ -56,7 +57,10 @@ header {
     width: 350px;
     border: 2px solid black;
     border-radius: 5px;
-    margin: 12px 0px 30px 0px;
+}
+
+#label {
+    margin-top: 40px;
 }
 
 .clearForm {
@@ -91,6 +95,39 @@ button {
 /* FIN INPUTS COMMON FORM */
 
 
+/*Input validation*/
+
+#popup {
+    display: flex;
+    background-color: rgba(255, 0, 0, 0.233);
+    height: 30px;
+    width: 350px;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    color: rgb(119, 26, 26);
+    font-size: 15px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+
+/*SECTION ADDRESS */
+
+#telForm {
+    max-width: 5%;
+    height: 36px;
+}
+
+.address {
+    margin-left: 5%;
+    display: none;
+}
+
+
+/* FIN SECTION ADDRESS */
+
+
 /* PRODUCT */
 
 .product {
@@ -100,21 +137,110 @@ button {
 
 .product-left {
     width: 50%;
+    display: flex;
+}
+
+.thumbnails-images-product {
+    width: 23%;
+    padding: 1em;
+}
+
+.thumbnails-images-product img {
+    cursor: pointer;
+}
+
+.image-big-product {
+    width: 90%;
+    padding: 1em 1em;
+}
+
+.image-thumbnails {
+    width: 100%;
+}
+
+.image-thumbnails {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.image-thumbnails:hover {
+    opacity: 1;
+}
+
+.image-version-game {
+    opacity: 0.7;
+}
+
+.image-version-game:hover {
+    opacity: 1;
 }
 
 .product-right {
     width: 50%;
+    padding-left: 1em;
 }
 
 .image-game {
-    width: 80%;
+    width: 100%;
+    max-height: 490px;
+}
+
+.game-title {
+    font-size: 2em;
+}
+
+#price {
+    font-size: 1.5em;
+}
+
+.active {
+    opacity: 1;
 }
 
 .editions img {
-    width: 20%;
-    max-height: 120px;
+    max-height: 100px;
     cursor: pointer;
     object-fit: contain;
+    padding: 0em 1%;
+}
+
+.button-buy {
+    background-color: #b81515;
+    padding: 7px;
+    width: 100px;
+    animation: bn53bounce 3s infinite;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    margin: 1em 0em;
+}
+
+@keyframes bn53bounce {
+    5%,
+    50% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1) rotate(-5deg);
+    }
+    25% {
+        transform: scale(1) rotate(5deg);
+    }
+    30% {
+        transform: scale(1) rotate(-3deg);
+    }
+    35% {
+        transform: scale(1) rotate(2deg);
+    }
+    40% {
+        transform: scale(1) rotate(0);
+    }
 }
 
 
