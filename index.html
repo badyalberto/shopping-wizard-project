@@ -16,28 +16,35 @@
     <div class="container">
         <div class="product">
             <div class="product-left">
-                <div class="thumbnails-images-product"></div>
-                <div class="image-big-product"><img class="image-game" src="./images/pc_caratula.jpg" alt="assassin creed"></div>
+                <div class="thumbnails-images-product">
+                    <img class="image-thumbnails active" id-img="0" src="./images/pc_normal_caratula.jpg" alt="">
+                    <img class="image-thumbnails" id-img="1" src="./images/screen1.jpg" alt="">
+                    <img class="image-thumbnails" id-img="2" src="./images/screen2.jpg" alt="">
+                    <img class="image-thumbnails" id-img="3" src="./images/screen3.jpg" alt="">
+                    <img class="image-thumbnails" id-img="4" src="./images/screen4.jpg" alt="">
+                    <img class="image-thumbnails" id-img="5" src="./images/screen5.jpg" alt="">
+                </div>
+                <div class="image-big-product"><img class="image-game" src="./images/pc_normal_caratula.jpg" alt="assassin creed"></div>
             </div>
             <div class="product-right">
-                <p>Assassin Creed</p>
-                <p>Price</p>
-                <p>59.95€</p>
-                <p>Version</p>
-                <select>
+                <p class="game-title"><strong>Assassin Creed</strong></p>
+                <p><strong>Price</strong></p>
+                <p id="price"><strong>59.95€</strong></p>
+                <p><strong>Version</strong></p>
+                <select id="select-option">
                     <option value="pc">PC Version</option>
                     <option value="xbox">XBOX Version</option>
                     <option value="play">PLAY STATION Version</option>
                     <!--<option value="switch">SWITCH Version</option>-->
                 </select>
-                <p>Editions</p>
-                <div class="editions">
-                    <img src="./images/pc_caratula.jpg" alt="">
-                    <img src="./images/pc_deluxe_caratula.jpg" alt="">
-                    <img src="./images/pc_gold_caratula.jpg" alt="">
-                    <img src="./images/pc_ultimate_caratula.jpg" alt="">
+                <p><strong>Editions</strong></p>
+                <div class="editions" id="editions">
+                    <img game-version="normal" class="image-version-game active" src="./images/pc_normal_caratula.jpg" alt="">
+                    <img game-version="deluxe" class="image-version-game" src="./images/pc_deluxe_caratula.jpg" alt="">
+                    <img game-version="gold" class="image-version-game" src="./images/pc_gold_caratula.jpg" alt="">
+                    <img game-version="ultimate" class="image-version-game" src="./images/pc_ultimate_caratula.jpg" alt="">
                 </div>
-                <button class="next">Buy</button>
+                <button class="button-buy">Buy</button>
             </div>
         </div>
         <div class="profile">
