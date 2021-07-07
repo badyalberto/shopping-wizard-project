@@ -17,6 +17,7 @@ body {
 header {
     height: 100px;
     background-color: lightgray;
+    margin-bottom: 5%;
 }
 
 
@@ -56,7 +57,10 @@ header {
     width: 350px;
     border: 2px solid black;
     border-radius: 5px;
-    margin: 12px 0px 30px 0px;
+}
+
+#label {
+    margin-top: 40px;
 }
 
 .clearForm {
@@ -91,6 +95,39 @@ button {
 /* FIN INPUTS COMMON FORM */
 
 
+/*Input validation*/
+
+#popup {
+    display: flex;
+    background-color: rgba(255, 0, 0, 0.233);
+    height: 30px;
+    width: 350px;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    color: rgb(119, 26, 26);
+    font-size: 15px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+
+/*SECTION ADDRESS */
+
+#telForm {
+    max-width: 5%;
+    height: 36px;
+}
+
+.address {
+    margin-left: 5%;
+    display: none;
+}
+
+
+/* FIN SECTION ADDRESS */
+
+
 /* PRODUCT */
 
 .product {
@@ -108,6 +145,7 @@ button {
 
 .image-game {
     width: 80%;
+    margin-left: 5%;
 }
 
 .editions img {

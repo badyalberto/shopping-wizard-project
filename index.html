@@ -59,21 +59,26 @@
                     <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
                 </div>
             </nav>
-            <h1 class="headingProfile"></h1>Profile</h1>
-            <label>Username</label> <br />
+            <h1 class="headingProfile">Profile</h1>
 
-            <input type="text" class="inputText" /> <br />
-            <label>Email</label><br />
+            <div class="userName" id="label">Username</div>
+            <br />
+            <input type="text" class="inputText" id="usernameInput" /> <br />
 
-            <input type="text" class="inputText" /><br />
-            <label>Password</label><br />
+            <div class="Email" id="label">Email</div>
+            <br />
+            <input type="email" class="inputText" id="EmailInput" /><br />
 
-            <input type="text" class="inputText" /><br />
-            <label>Confirm Password</label><br />
+            <div class="password" id="label">Password</div>
+            <br />
+            <input type="password" class="inputText" id="passInput" /><br />
 
-            <input type="text" class="inputText" /><br />
-            <button class="clearForm">Clear Form</button>
-            <button class="next">Next</button>
+            <div class="confirmPassword" id="label">Confirm Password</div>
+            <br />
+            <input type="password" class="inputText" id="confirmPassInput" /><br />
+
+            <button class="clearForm" id="clearProfile">Clear Form</button>
+            <button class="next" id="nextProfile">Next</button>
         </div>
         <div class="address">
             <section class="breadcrumb">
@@ -86,6 +91,41 @@
                 <p>Finish</p>
                 <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
             </section>
+            <h1>Address</h1>
+            <label>First Name</label><br />
+            <input type="text" class="inputText" /> <br />
+            <label>Last Name</label><br />
+            <input type="text" class="inputText" /> <br />
+            <label>Birthday</label><br />
+            <input type="date" class="inputText" /> <br />
+            <label>Address 1</label><br />
+            <input type="text" class="inputText" /> <br />
+            <label>Address 2</label><br />
+            <input type="text" class="inputText" /> <br />
+            <label>Postal Code</label><br />
+            <input type="text" class="inputText" /> <br />
+            <label>Country</label><br />
+            <select name="countries" from="countryform" class="inputText">
+                    <option value="Spain">Spain</option>
+                    <option value="France">France</option>
+                    <option value="Andorre">Andorre</option>
+            </select><br />
+            <label>Phone</label><br />
+            <select name=countries_tel from="telform" id="telForm" class="inputText">
+                <option value="ES">ES</option>
+                <option value="FR">FR</option>
+                <option value="AND">AND</option>
+            </select><input type="tel" class="inputText" list="cnames" />
+            <datalist id="countries_des" name="countries_des" list="countries2">
+                  <option value="ES">ES</option>
+                  <option value="FR">FR</option>
+                  <option value="AND">AND</option>
+              </datalist>
+            <br />
+            <input type="checkbox" class="inputText" />
+            <label>This is my regular address</label><br />
+            <button class="clearForm">Clear Form</button>
+            <button class="next">Next</button>
         </div>
         <div class="shipping">
             <nav class="breadcrumb">
