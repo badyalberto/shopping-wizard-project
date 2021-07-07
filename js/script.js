@@ -224,12 +224,9 @@ let confirmPassInput = document.getElementById("confirmPassInput");
 nextButton.addEventListener("click", empty);
 
 function empty() {
-    if (
-        userInput.value == "" ||
-        (userInput.value.length < 5 && !$profile.children.includes(redText))
-    ) {
+    if (userInput.value == "" || userInput.value.length < 5) {
         let popUp = document.createElement("div");
-        popUp.setAttribute("id", "popup");
+        popUp.setAttribute("id", "popupUser");
         popUp.className = "error";
         popUp.innerHTML = "Please enter a username";
         userInput.style.border = "2px solid red";
@@ -239,7 +236,7 @@ function empty() {
     }
     if (emailInput.value == "" || !emailInput.value.includes("@")) {
         let popUpEmail = document.createElement("div");
-        popUpEmail.setAttribute("id", "popup");
+        popUpEmail.setAttribute("id", "popupEmail");
         popUpEmail.className = "error";
         popUpEmail.innerHTML = "Please enter a Valid Email";
         emailInput.style.border = "2px solid red";
@@ -249,7 +246,7 @@ function empty() {
     }
     if (passwordInput.value == "" || passwordInput.value.length < 8) {
         let popUpPass = document.createElement("div");
-        popUpPass.setAttribute("id", "popup");
+        popUpPass.setAttribute("id", "popupPass");
         popUpPass.className = "error";
         popUpPass.innerHTML = "Please enter a valid password";
         passwordInput.style.border = "2px solid red";
@@ -262,7 +259,7 @@ function empty() {
         confirmPassInput.value !== passwordInput.value
     ) {
         let popUpCp = document.createElement("div");
-        popUpCp.setAttribute("id", "popup");
+        popUpCp.setAttribute("id", "popupCp");
         popUpCp.className = "error";
         popUpCp.innerHTML = "Passwords don't match";
         confirmPassInput.style.border = "2px solid red";
@@ -271,15 +268,48 @@ function empty() {
         $profile.insertBefore(popUpCp, clearFormButton);
     }
 
-    if (
-        confirmPassInput.value !== "" &&
-        confirmPassInput.value == passwordInput.value
-    ) {
+    if ($profile.querySelectorAll(".error").length == 0) {
         $profile.style.display = "none";
         document.querySelector(".address").style.display = "block";
     }
 }
 
+// Keydown Validate Function
+
+//Keydown Event to Validate
+$profile.addEventListener("keydown", validateInput);
+
+function validateInput() {
+    if (userInput.value !== "" && userInput.value.length > 5) {
+        if (document.getElementById("popupUser") !== null) {
+            document.getElementById("popupUser").remove();
+        }
+        userInput.style.border = "2px solid black";
+        userName.style.color = "black";
+    }
+    if (emailInput.value !== "" && emailInput.value.includes("@")) {
+        if (document.getElementById("popupEmail") !== null) {
+            document.getElementById("popupEmail").remove();
+        }
+        emailInput.style.border = "2px solid black";
+        Email.style.color = "black";
+    }
+    if (passwordInput.value !== "" && passwordInput.value.length > 6) {
+        if (document.getElementById("popupPass") !== null) {
+            document.getElementById("popupPass").remove();
+        }
+        passwordInput.style.border = "2px solid black";
+        password.style.color = "black";
+    }
+
+    if (confirmPassInput.value !== "" && confirmPassInput.value.length > 6) {
+        if (document.getElementById("popupCp") !== null) {
+            document.getElementById("popupCp").remove();
+        }
+        confirmPassInput.style.border = "2px solid black";
+        confirmPassword.style.color = "black";
+    }
+}
 // Clear Form Function
 
 clearFormButton.addEventListener("click", clearAll);
@@ -288,11 +318,10 @@ function clearAll() {
     let textArea = $profile.getElementsByTagName("input");
 
     for (i = 0; i < textArea.length; i++) {
-        if ((textArea[i].type = "text")) {
-            textArea[i].value = "";
-        }
+        textArea[i].value = "";
     }
-    let redAreas = $profile.querySelectorAll("#popup");
+
+    let redAreas = $profile.querySelectorAll(".error");
     for (i = 0; i < redAreas.length; i++) {
         redAreas[i].remove();
     }

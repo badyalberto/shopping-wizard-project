@@ -70,19 +70,19 @@
 
             <div class="userName" id="label">Username</div>
             <br />
-            <input type="text" class="inputText" id="usernameInput" /> <br />
+            <input maxlength="20" type="text" class="inputText" id="usernameInput" required /> <br />
 
             <div class="Email" id="label">Email</div>
             <br />
-            <input type="email" class="inputText" id="EmailInput" /><br />
+            <input maxlength="50" type="email" class="inputText" id="EmailInput" title="Please Enter a Valid Email" required/><br />
 
             <div class="password" id="label">Password</div>
             <br />
-            <input type="password" class="inputText" id="passInput" /><br />
+            <input maxlength="20" minlength="8" type="password" class="inputText" id="passInput" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required /><br />
 
             <div class="confirmPassword" id="label">Confirm Password</div>
             <br />
-            <input type="password" class="inputText" id="confirmPassInput" /><br />
+            <input type="password" class="inputText" id="confirmPassInput" title="The passwords must be same" required/><br />
 
             <button class="clearForm" id="clearProfile">Clear Form</button>
             <button class="next" id="nextProfile">Next</button>
