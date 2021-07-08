@@ -7,6 +7,8 @@ let finishShipping = document.getElementById("finish-shipping");
 let totalString = "";
 
 function filling() {
+    document.querySelector('.product').style.display = 'none';
+    document.querySelector('.profile').style.display = 'block';
     document.getElementById("finish-name").innerHTML =
         "<b>" + document.querySelector(".game-title").innerHTML + "</b>";
     document.getElementById("finish-platform").innerHTML +=
@@ -213,16 +215,16 @@ function changeContentImagesLeftPrice(e) {
 
     switch (version) {
         case "normal":
-            document.querySelector("#price").textContent = "39.95€";
+            document.querySelector("#price").innerHTML = "<strong>39.95€</strong>";
             break;
         case "deluxe":
-            document.querySelector("#price").textContent = "49.95€";
+            document.querySelector("#price").innerHTML = "<strong>49.95€</strong>";
             break;
         case "gold":
-            document.querySelector("#price").textContent = "59.95€";
+            document.querySelector("#price").innerHTML = "<strong>59.95€</strong>";
             break;
         case "ultimate":
-            document.querySelector("#price").textContent = "69.95€";
+            document.querySelector("#price").innerHTML = "<strong>69.95€</strong>";
             break;
         default:
             break;
@@ -398,6 +400,10 @@ function priceShipping(e) {
         default:
             break;
     }
+    let $divShipping = document.querySelector("#error-shipping");
+    if ($divShipping !== null) {
+        $divShipping.remove();
+    }
 }
 
 function nextShipping(e) {
@@ -453,8 +459,31 @@ function nextShipping(e) {
                 );
             totalPrice.innerHTML +=
                 " " + "<b>" + eval(totalString).toFixed(2) + "€" + "</b>";
+
+            document
+                .querySelector(".shipping-container")
+                .classList.add("transations-divs");
+            setTimeout(function() {
+                document.querySelector(".shipping").classList.add("display-none");
+            }, 1000);
+            document.querySelector(".finish").style.display = "block";
+            correctForm = true;
         }
         errorShipping.remove();
+    }
+
+    let $divShipping = document.querySelector("#error-shipping");
+
+    if (!correctForm && $divShipping == null) {
+        let $buttons = document.querySelector(".buttons-form");
+        let $parent = document.querySelector(".shipping-type");
+        errorShipping.setAttribute("id", "error-shipping");
+        errorShipping.className = "error";
+        errorShipping.innerHTML = "Please select a shipment";
+        errorShipping.style.border = "2px solid red";
+        errorShipping.style.color = "red";
+        $parent.insertBefore(errorShipping, $buttons);
+        error = true;
     }
 }
 

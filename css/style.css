@@ -15,9 +15,15 @@ body {
 /* HEADER */
 
 header {
-    height: 100px;
+    height: 120px;
     background-color: lightgray;
     margin-bottom: 5%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    align-items: center;
 }
 
 
@@ -44,6 +50,7 @@ header {
 .profile {
     margin: 5%;
     font-family: sans-serif;
+    display: none;
 }
 
 .menu {
@@ -237,7 +244,7 @@ button {
 
 .address {
     margin-left: 5%;
-    display: block;
+    display: none;
 }
 
 
@@ -421,6 +428,10 @@ select {
 
 /* SECTION SHIPPING */
 
+.shipping {
+    display: none;
+}
+
 .transations-divs {
     animation: slide 1s linear;
 }
@@ -509,7 +520,7 @@ select {
 }
 
 .buttons-form {
-    float: right;
+    float: left;
     clear: both;
 }
 
@@ -518,10 +529,12 @@ select {
 }
 
 .checkbox-message {
-    height: 30px;
     border: 2px solid black;
     border-radius: 5px;
-    vertical-align: middle;
+    width: 30px;
+    height: 20px;
+    margin: 20px 10px 10px 0;
+    vertical-align: -5PX;
 }
 
 #error-shipping {
@@ -543,6 +556,10 @@ select {
 
 
 /*Finish Div*/
+
+.finish {
+    display: none;
+}
 
 .background-div {
     background-color: lightgrey;
@@ -587,8 +604,9 @@ footer {
     justify-content: center;
     align-items: center;
     height: 100px;
-    background-color: lightgray;
+    background-color: black;
     font-weight: bold;
+    color: white;
 }
 
 
