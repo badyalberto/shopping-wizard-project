@@ -1,56 +1,161 @@
+// Section Address
+
+let $address = document.querySelector(".address");
+let firsNameLabel = document.getElementById("first_name_label");
+let firstName = document.getElementById("first_name");
+let lastNameLabel = document.getElementById("last_name_label");
+let lastName = document.getElementById("last_name");
+let birthday = document.getElementById("birthday");
+let birthdayLabel = document.getElementById("birthday_label");
+let address1 = document.getElementById("address1");
+let addressLabel = document.getElementById("address_label");
+let address2 = document.getElementById("address2");
+let addressLabel2 = document.getElementById("address_label2");
+let postalCode = document.getElementById("postal_code");
+let postalCodeLabel = document.getElementById("postal_label");
+let countryLabel = document.getElementById("country_label");
+let phone = document.getElementById("phone");
+let phoneLabel = document.getElementById("phone_label");
+let regular = document.getElementById("regular");
+let clearAddress = document.getElementById("clear_address");
+let nextAddress = document.getElementById("next_address");
+
+clearAddress.addEventListener("click", goclearAll);
+nextAddress.addEventListener("click", goNextAddress);
+
+function goNextAddress() {
+    let redAreas = $address.querySelectorAll(".error");
+    for (i = 0; i < redAreas.length; i++) {
+        redAreas[i].remove();
+    }
+    let clearRed = $address.querySelectorAll(".inputError");
+    for (i = 0; i < clearRed.length; i++) {
+        clearRed[i].className = "inputText";
+    }
+    if (firstName.value == "" || firstName.value.length < 2) {
+        let popUpFirst = document.createElement("div");
+        popUpFirst.setAttribute("id", "popup");
+        popUpFirst.className = "error";
+        popUpFirst.innerHTML = "Please enter your first name";
+        firstName.className = "inputError";
+        $address.insertBefore(popUpFirst, lastNameLabel);
+    }
+    if (lastName.value == "" || lastName.value.length < 2) {
+        let popUpLast = document.createElement("div");
+        popUpLast.setAttribute("id", "popup");
+        popUpLast.className = "error";
+        popUpLast.innerHTML = "Please enter your last name";
+        lastName.className = "inputError";
+        $address.insertBefore(popUpLast, birthdayLabel);
+    }
+    if (birthday.value == "" || birthday.value.length < 2) {
+        let popUpBirthday = document.createElement("div");
+        popUpBirthday.setAttribute("id", "popup");
+        popUpBirthday.className = "error";
+        popUpBirthday.innerHTML = "Please enter your birthday";
+        birthday.className = "inputError";
+        $address.insertBefore(popUpBirthday, addressLabel);
+    }
+    if (address1.value == "" || address1.value.length < 2) {
+        let popUpAddress = document.createElement("div");
+        popUpAddress.setAttribute("id", "popup");
+        popUpAddress.className = "error";
+        popUpAddress.innerHTML = "Please enter your address";
+        address1.className = "inputError";
+        $address.insertBefore(popUpAddress, addressLabel2);
+    }
+    if (postalCode.value == "" || postalCode.value.length < 3) {
+        let popUpPostal = document.createElement("div");
+        popUpPostal.setAttribute("id", "popup");
+        popUpPostal.className = "error";
+        popUpPostal.innerHTML = "Please enter your zip code";
+        postalCode.className = "inputError";
+        $address.insertBefore(popUpPostal, countryLabel);
+    }
+    if (phone.value == "" || phone.value.length < 5) {
+        let popUpPhone = document.createElement("div");
+        popUpPhone.setAttribute("id", "popup");
+        popUpPhone.className = "error";
+        popUpPhone.innerHTML = "Please enter your phone";
+        phone.className = "inputError";
+        $address.insertBefore(popUpPhone, regular);
+    }
+    if ($address.querySelectorAll(".error").length == 0) {
+        $address.style.display = "none";
+        document.querySelector(".shipping").style.display = "block";
+    }
+}
+
+function goclearAll() {
+    let textArea = $address.getElementsByTagName("input");
+    for (i = 0; i < textArea.length; i++) {
+        textArea[i].value = "";
+        textArea[i].classList.remove("inputError");
+        textArea[i].className = "inputText";
+    }
+    let redAreas = $address.querySelectorAll("#popup");
+    for (i = 0; i < redAreas.length; i++) {
+        redAreas[i].remove();
+    }
+}
 // PRODUCT
-document.querySelector("#select-option").addEventListener("change", versionGame);
+document
+    .querySelector("#select-option")
+    .addEventListener("change", versionGame);
 
 function addEventsImages() {
-    let imageVersions = document
-        .querySelector("#editions").children;
+    let imageVersions = document.querySelector("#editions").children;
 
     for (let image of imageVersions) {
-        image.addEventListener('click', changeContentImagesLeftPrice);
+        image.addEventListener("click", changeContentImagesLeftPrice);
     }
 }
 addEventsImages();
 
-
 function changeContentImagesLeftPrice(e) {
-    let version = e.target.getAttribute('game-version');
+    let version = e.target.getAttribute("game-version");
     let imageVersions = document.querySelector("#editions").children;
-    let thumbnailsImages = document.querySelector('.thumbnails-images-product').children;
+    let thumbnailsImages = document.querySelector(
+        ".thumbnails-images-product"
+    ).children;
 
     //reset version games images
     for (let image of imageVersions) {
-        image.classList.remove('active');
+        image.classList.remove("active");
     }
 
     //Reset thumbsnails Images
     for (let image of thumbnailsImages) {
-        image.classList.remove('active');
+        image.classList.remove("active");
     }
 
     //add class active first child of .thumbnails-images-product
-    thumbnailsImages[0].classList.add('active');
+    thumbnailsImages[0].classList.add("active");
 
     switch (version) {
-        case 'normal':
-            document.querySelector('#price').textContent = '39.95€';
+        case "normal":
+            document.querySelector("#price").textContent = "39.95€";
             break;
-        case 'deluxe':
-            document.querySelector('#price').textContent = '49.95€';
+        case "deluxe":
+            document.querySelector("#price").textContent = "49.95€";
             break;
-        case 'gold':
-            document.querySelector('#price').textContent = '59.95€';
+        case "gold":
+            document.querySelector("#price").textContent = "59.95€";
             break;
-        case 'ultimate':
-            document.querySelector('#price').textContent = '69.95€';
+        case "ultimate":
+            document.querySelector("#price").textContent = "69.95€";
             break;
         default:
             break;
     }
-    e.target.classList.toggle('active');
-    let opt = document.querySelector('#select-option').value;
-    document.querySelector('.image-game').setAttribute('src', `./images/${opt}_${version}_caratula.jpg`);
-    document.querySelector('.image-thumbnails').setAttribute('src', `./images/${opt}_${version}_caratula.jpg`);
-
+    e.target.classList.toggle("active");
+    let opt = document.querySelector("#select-option").value;
+    document
+        .querySelector(".image-game")
+        .setAttribute("src", `./images/${opt}_${version}_caratula.jpg`);
+    document
+        .querySelector(".image-thumbnails")
+        .setAttribute("src", `./images/${opt}_${version}_caratula.jpg`);
 }
 
 function versionGame(e) {
@@ -70,11 +175,11 @@ function versionGame(e) {
     }
 }
 
-function changeContentImagesVersion(version = '') {
+function changeContentImagesVersion(version = "") {
     let editions = document.querySelector("#editions");
     editions.innerHTML = "";
 
-    if (version !== '') {
+    if (version !== "") {
         let img1 = document.createElement("img");
         let img2 = document.createElement("img");
         let img3 = document.createElement("img");
@@ -83,14 +188,14 @@ function changeContentImagesVersion(version = '') {
         img2.setAttribute("src", `./images/${version}_deluxe_caratula.jpg`);
         img3.setAttribute("src", `./images/${version}_gold_caratula.jpg`);
         img4.setAttribute("src", `./images/${version}_ultimate_caratula.jpg`);
-        img1.setAttribute('class', 'image-version-game active');
-        img2.setAttribute('class', 'image-version-game');
-        img3.setAttribute('class', 'image-version-game');
-        img4.setAttribute('class', 'image-version-game');
-        img1.setAttribute('game-version', 'normal');
-        img2.setAttribute('game-version', 'deluxe');
-        img3.setAttribute('game-version', 'gold');
-        img4.setAttribute('game-version', 'ultimate');
+        img1.setAttribute("class", "image-version-game active");
+        img2.setAttribute("class", "image-version-game");
+        img3.setAttribute("class", "image-version-game");
+        img4.setAttribute("class", "image-version-game");
+        img1.setAttribute("game-version", "normal");
+        img2.setAttribute("game-version", "deluxe");
+        img3.setAttribute("game-version", "gold");
+        img4.setAttribute("game-version", "ultimate");
         editions.append(img1);
         editions.append(img2);
         editions.append(img3);
@@ -99,26 +204,35 @@ function changeContentImagesVersion(version = '') {
     }
 }
 
-var thumbnails = document.querySelector('.thumbnails-images-product').children;
+var thumbnails = document.querySelector(".thumbnails-images-product").children;
 
 for (let image of thumbnails) {
-    image.addEventListener('click', showBigImage);
+    image.addEventListener("click", showBigImage);
 }
 
 function showBigImage(e) {
     for (let image of thumbnails) {
-        image.classList.remove('active');
+        image.classList.remove("active");
     }
 
-    if (e.target.getAttribute('id-img') === "0") {
-        let platform = document.querySelector('#select-option').value;
-        let version = document.querySelector('.image-version-game.active').getAttribute('game-version');
-        document.querySelector('.image-game').setAttribute('src', `./images/${platform}_${version}_caratula.jpg`);
+    if (e.target.getAttribute("id-img") === "0") {
+        let platform = document.querySelector("#select-option").value;
+        let version = document
+            .querySelector(".image-version-game.active")
+            .getAttribute("game-version");
+        document
+            .querySelector(".image-game")
+            .setAttribute("src", `./images/${platform}_${version}_caratula.jpg`);
     } else {
-        document.querySelector('.image-game').setAttribute('src', `./images/screen${e.target.getAttribute('id-img')}.jpg`);
+        document
+            .querySelector(".image-game")
+            .setAttribute(
+                "src",
+                `./images/screen${e.target.getAttribute("id-img")}.jpg`
+            );
     }
 
-    e.target.classList.toggle('active');
+    e.target.classList.toggle("active");
 }
 //FIN PRODUCT
 
@@ -152,7 +266,7 @@ function clearFormShipping(e) {
     document.querySelector("#shipping-form").reset();
     document.querySelector(".gift-message").classList.add("gift-message-hidden");
     document.querySelector(".date-delivery").style.display = "none";
-    errorShipping.remove();
+    document.querySelector('#error-shipping').remove();
 }
 
 

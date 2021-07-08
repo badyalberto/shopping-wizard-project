@@ -223,6 +223,7 @@ button {
     color: rgb(119, 26, 26);
     font-size: 15px;
     margin-top: 10px;
+    /*This should be "margin: 10px 0;"*/
     align-items: center;
 }
 
@@ -236,7 +237,7 @@ button {
 
 .address {
     margin-left: 5%;
-    display: none;
+    display: block;
 }
 
 
@@ -331,7 +332,6 @@ select {
 
 .button-buy {
     background-color: #b81515;
-    border: 1px solid #b81515;
     padding: 7px;
     width: 100px;
     animation: bn53bounce 3s infinite;
@@ -376,6 +376,47 @@ select {
 
 
 /* FIN SECTION PRODUCT */
+
+
+/*SECTION ADDRESS*/
+
+.inputError {
+    border: 2px solid red;
+    color: red;
+    height: 30px;
+    width: 350px;
+    margin: 12px 0px 0px 0px;
+}
+
+#birthday {
+    height: 35px;
+}
+
+#countries {
+    height: 37px;
+    width: 357px;
+}
+
+#telform {
+    width: 61px;
+    height: 36px;
+    border: collapse;
+    margin-right: 5px;
+}
+
+#regular {
+    width: 30px;
+    height: 20px;
+    margin: 20px 10px 10px 0;
+}
+
+#phone {
+    border: collapse;
+    width: 284px;
+}
+
+
+/*FIN SECTION ADDRESS*/
 
 
 /* SECTION SHIPPING */
