@@ -224,53 +224,55 @@ let confirmPassInput = document.getElementById("confirmPassInput");
 nextButton.addEventListener("click", empty);
 
 function empty() {
-    if (userInput.value == "" || userInput.value.length < 5) {
-        let popUp = document.createElement("div");
-        popUp.setAttribute("id", "popupUser");
-        popUp.className = "error";
-        popUp.innerHTML = "Please enter a username";
-        userInput.style.border = "2px solid red";
-        userName.style.color = "red";
-
-        $profile.insertBefore(popUp, Email);
-    }
-    if (emailInput.value == "" || !emailInput.value.includes("@")) {
-        let popUpEmail = document.createElement("div");
-        popUpEmail.setAttribute("id", "popupEmail");
-        popUpEmail.className = "error";
-        popUpEmail.innerHTML = "Please enter a Valid Email";
-        emailInput.style.border = "2px solid red";
-        Email.style.color = "red";
-
-        $profile.insertBefore(popUpEmail, password);
-    }
-    if (passwordInput.value == "" || passwordInput.value.length < 8) {
-        let popUpPass = document.createElement("div");
-        popUpPass.setAttribute("id", "popupPass");
-        popUpPass.className = "error";
-        popUpPass.innerHTML = "Please enter a valid password";
-        passwordInput.style.border = "2px solid red";
-        password.style.color = "red";
-
-        $profile.insertBefore(popUpPass, confirmPassword);
-    }
-    if (
-        confirmPassInput.value == "" ||
-        confirmPassInput.value !== passwordInput.value
-    ) {
-        let popUpCp = document.createElement("div");
-        popUpCp.setAttribute("id", "popupCp");
-        popUpCp.className = "error";
-        popUpCp.innerHTML = "Passwords don't match";
-        confirmPassInput.style.border = "2px solid red";
-        confirmPassword.style.color = "red";
-
-        $profile.insertBefore(popUpCp, clearFormButton);
-    }
-
     if ($profile.querySelectorAll(".error").length == 0) {
-        $profile.style.display = "none";
-        document.querySelector(".address").style.display = "block";
+        if (userInput.value == "" || userInput.value.length < 5) {
+            let popUp = document.createElement("div");
+            popUp.setAttribute("id", "popupUser");
+            popUp.className = "error";
+            popUp.innerHTML = "Please enter a username";
+            userInput.style.border = "2px solid red";
+            userName.style.color = "red";
+
+            $profile.insertBefore(popUp, Email);
+        }
+        if (emailInput.value == "" || !emailInput.value.includes("@")) {
+            let popUpEmail = document.createElement("div");
+            popUpEmail.setAttribute("id", "popupEmail");
+            popUpEmail.className = "error";
+            popUpEmail.innerHTML = "Please enter a Valid Email";
+            emailInput.style.border = "2px solid red";
+            Email.style.color = "red";
+
+            $profile.insertBefore(popUpEmail, password);
+        }
+        if (passwordInput.value == "" || passwordInput.value.length < 8) {
+            let popUpPass = document.createElement("div");
+            popUpPass.setAttribute("id", "popupPass");
+            popUpPass.className = "error";
+            popUpPass.innerHTML = "Please enter a valid password";
+            passwordInput.style.border = "2px solid red";
+            password.style.color = "red";
+
+            $profile.insertBefore(popUpPass, confirmPassword);
+        }
+        if (
+            confirmPassInput.value == "" ||
+            confirmPassInput.value !== passwordInput.value
+        ) {
+            let popUpCp = document.createElement("div");
+            popUpCp.setAttribute("id", "popupCp");
+            popUpCp.className = "error";
+            popUpCp.innerHTML = "Passwords don't match";
+            confirmPassInput.style.border = "2px solid red";
+            confirmPassword.style.color = "red";
+
+            $profile.insertBefore(popUpCp, clearFormButton);
+        }
+
+        if ($profile.querySelectorAll(".error").length == 0) {
+            $profile.style.display = "none";
+            document.querySelector(".address").style.display = "block";
+        }
     }
 }
 
