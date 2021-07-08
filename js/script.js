@@ -34,7 +34,7 @@ function filling() {
       document.getElementById("finish-version").innerHTML +=
         " " + "<b>" + "Gold" + "</b>";
       break;
-    case "premium":
+    case "ultimate":
       document.getElementById("finish-version").innerHTML +=
         " " + "<b>" + "Premium" + "</b>";
       break;
@@ -61,6 +61,118 @@ function lastButton() {
 }
 
 finalButton.addEventListener("click", lastButton);
+// PRODUCT
+document
+  .querySelector("#select-option")
+  .addEventListener("change", versionGame);
+
+function addEventsImages() {
+  let imageVersions = document.querySelector("#editions").children;
+
+  for (let image of imageVersions) {
+    image.addEventListener("click", changeContentImagesLeftPrice);
+  }
+}
+// Section Address
+
+let $address = document.querySelector(".address");
+let firsNameLabel = document.getElementById("first_name_label");
+let firstName = document.getElementById("first_name");
+let lastNameLabel = document.getElementById("last_name_label");
+let lastName = document.getElementById("last_name");
+let birthday = document.getElementById("birthday");
+let birthdayLabel = document.getElementById("birthday_label");
+let address1 = document.getElementById("address1");
+let addressLabel = document.getElementById("address_label");
+let address2 = document.getElementById("address2");
+let addressLabel2 = document.getElementById("address_label2");
+let postalCode = document.getElementById("postal_code");
+let postalCodeLabel = document.getElementById("postal_label");
+let countryLabel = document.getElementById("country_label");
+let phone = document.getElementById("phone");
+let phoneLabel = document.getElementById("phone_label");
+let regular = document.getElementById("regular");
+let clearAddress = document.getElementById("clear_address");
+let nextAddress = document.getElementById("next_address");
+
+clearAddress.addEventListener("click", goclearAll);
+nextAddress.addEventListener("click", goNextAddress);
+
+function goNextAddress() {
+  let redAreas = $address.querySelectorAll(".error");
+  for (i = 0; i < redAreas.length; i++) {
+    redAreas[i].remove();
+  }
+  let clearRed = $address.querySelectorAll(".inputError");
+  for (i = 0; i < clearRed.length; i++) {
+    clearRed[i].className = "inputText";
+  }
+  if (firstName.value == "" || firstName.value.length < 2) {
+    let popUpFirst = document.createElement("div");
+    popUpFirst.setAttribute("id", "popup");
+    popUpFirst.className = "error";
+    popUpFirst.innerHTML = "Please enter your first name";
+    firstName.className = "inputError";
+    $address.insertBefore(popUpFirst, lastNameLabel);
+  }
+  if (lastName.value == "" || lastName.value.length < 2) {
+    let popUpLast = document.createElement("div");
+    popUpLast.setAttribute("id", "popup");
+    popUpLast.className = "error";
+    popUpLast.innerHTML = "Please enter your last name";
+    lastName.className = "inputError";
+    $address.insertBefore(popUpLast, birthdayLabel);
+  }
+  if (birthday.value == "" || birthday.value.length < 2) {
+    let popUpBirthday = document.createElement("div");
+    popUpBirthday.setAttribute("id", "popup");
+    popUpBirthday.className = "error";
+    popUpBirthday.innerHTML = "Please enter your birthday";
+    birthday.className = "inputError";
+    $address.insertBefore(popUpBirthday, addressLabel);
+  }
+  if (address1.value == "" || address1.value.length < 2) {
+    let popUpAddress = document.createElement("div");
+    popUpAddress.setAttribute("id", "popup");
+    popUpAddress.className = "error";
+    popUpAddress.innerHTML = "Please enter your address";
+    address1.className = "inputError";
+    $address.insertBefore(popUpAddress, addressLabel2);
+  }
+  if (postalCode.value == "" || postalCode.value.length < 3) {
+    let popUpPostal = document.createElement("div");
+    popUpPostal.setAttribute("id", "popup");
+    popUpPostal.className = "error";
+    popUpPostal.innerHTML = "Please enter your zip code";
+    postalCode.className = "inputError";
+    $address.insertBefore(popUpPostal, countryLabel);
+  }
+  if (phone.value == "" || phone.value.length < 5) {
+    let popUpPhone = document.createElement("div");
+    popUpPhone.setAttribute("id", "popup");
+    popUpPhone.className = "error";
+    popUpPhone.innerHTML = "Please enter your phone";
+    phone.className = "inputError";
+    $address.insertBefore(popUpPhone, regular);
+  }
+  if ($address.querySelectorAll(".error").length == 0) {
+    $address.style.display = "none";
+    document.querySelector(".shipping").style.display = "block";
+  }
+}
+
+function goclearAll() {
+  let textArea = $address.getElementsByTagName("input");
+  for (i = 0; i < textArea.length; i++) {
+    textArea[i].value = "";
+    textArea[i].classList.remove("inputError");
+    textArea[i].className = "inputText";
+  }
+  let redAreas = $address.querySelectorAll("#popup");
+  for (i = 0; i < redAreas.length; i++) {
+    redAreas[i].remove();
+  }
+}
 // PRODUCT
 document
   .querySelector("#select-option")
@@ -193,6 +305,7 @@ function showBigImage(e) {
         `./images/screen${e.target.getAttribute("id-img")}.jpg`
       );
   }
+
   e.target.classList.toggle("active");
 }
 //FIN PRODUCT
@@ -220,12 +333,14 @@ function checkGift(e) {
     .querySelector(".gift-message")
     .classList.toggle("gift-message-hidden");
 }
+let errorShipping = document.createElement("div");
 
 function clearFormShipping(e) {
   e.preventDefault();
   document.querySelector("#shipping-form").reset();
   document.querySelector(".gift-message").classList.add("gift-message-hidden");
   document.querySelector(".date-delivery").style.display = "none";
+  document.querySelector("#error-shipping").remove();
 }
 
 function priceShipping(e) {
@@ -265,6 +380,7 @@ function nextShipping(e) {
       correctForm = true;
       let complex = document.querySelector(".shipping-type");
       let inp = complex.querySelectorAll('input[name = "shipping"]');
+      console.log(inp);
       let sel = "";
       document.getElementById("finish-between").innerHTML +=
         " " +
@@ -279,6 +395,7 @@ function nextShipping(e) {
           sel = input.value;
         }
       }
+      console.log(sel);
       switch (sel) {
         case "free":
           finishShipping.innerHTML += " " + "<b>" + "0€" + "</b>";
@@ -307,11 +424,40 @@ function nextShipping(e) {
       totalPrice.innerHTML +=
         " " + "<b>" + eval(totalString).toFixed(2) + "€" + "</b>";
     }
-  }
-  if (!correctForm) {
+    errorShipping.remove();
   }
 }
 
+/*function nextShipping(e) {
+  e.preventDefault();
+  let shipping = document.querySelectorAll('input[name="shipping"]');
+  let correctForm = false;
+  for (let i = 0; i < shipping.length; i++) {
+    if (shipping[i].checked) {
+      document
+        .querySelector(".shipping-container")
+        .classList.add("transations-divs");
+      setTimeout(function () {
+        document.querySelector(".shipping").classList.add("display-none");
+      }, 1000);
+      document.querySelector(".finish").style.display = "block";
+      correctForm = true;
+    }
+  }
+  let $divShipping = document.querySelector("#error-shipping");
+
+  if (!correctForm && $divShipping == null) {
+    let $buttons = document.querySelector(".buttons-form");
+    let $parent = document.querySelector(".shipping-type");
+    errorShipping.setAttribute("id", "error-shipping");
+    errorShipping.className = "error";
+    errorShipping.innerHTML = "Please select a shipment";
+    errorShipping.style.border = "2px solid red";
+    errorShipping.style.color = "red";
+    $parent.insertBefore(errorShipping, $buttons);
+    error = true;
+  }
+}*/
 //FIN SHIPPING
 let $profile = document.querySelector(".profile");
 let profileBlanks = document.querySelectorAll(".inputText");
