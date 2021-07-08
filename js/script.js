@@ -458,36 +458,37 @@ function nextShipping(e) {
     }
 }
 
-/*function nextShipping(e) {
-  e.preventDefault();
-  let shipping = document.querySelectorAll('input[name="shipping"]');
-  let correctForm = false;
-  for (let i = 0; i < shipping.length; i++) {
-    if (shipping[i].checked) {
-      document
-        .querySelector(".shipping-container")
-        .classList.add("transations-divs");
-      setTimeout(function () {
-        document.querySelector(".shipping").classList.add("display-none");
-      }, 1000);
-      document.querySelector(".finish").style.display = "block";
-      correctForm = true;
+/*
+function nextShipping(e) {
+    e.preventDefault();
+    let shipping = document.querySelectorAll('input[name="shipping"]');
+    let correctForm = false;
+    for (let i = 0; i < shipping.length; i++) {
+        if (shipping[i].checked) {
+            document
+                .querySelector(".shipping-container")
+                .classList.add("transations-divs");
+            setTimeout(function() {
+                document.querySelector(".shipping").classList.add("display-none");
+            }, 1000);
+            document.querySelector(".finish").style.display = "block";
+            correctForm = true;
+        }
     }
-  }
-  let $divShipping = document.querySelector("#error-shipping");
+    let $divShipping = document.querySelector("#error-shipping");
 
-  if (!correctForm && $divShipping == null) {
-    let $buttons = document.querySelector(".buttons-form");
-    let $parent = document.querySelector(".shipping-type");
-    errorShipping.setAttribute("id", "error-shipping");
-    errorShipping.className = "error";
-    errorShipping.innerHTML = "Please select a shipment";
-    errorShipping.style.border = "2px solid red";
-    errorShipping.style.color = "red";
-    $parent.insertBefore(errorShipping, $buttons);
-    error = true;
-  }
-}*/
+    if (!correctForm && $divShipping == null) {
+        let $buttons = document.querySelector(".buttons-form");
+        let $parent = document.querySelector(".shipping-type");
+        errorShipping.setAttribute("id", "error-shipping");
+        errorShipping.className = "error";
+        errorShipping.innerHTML = "Please select a shipment";
+        errorShipping.style.border = "2px solid red";
+        errorShipping.style.color = "red";
+        $parent.insertBefore(errorShipping, $buttons);
+        error = true;
+    }
+} */
 //FIN SHIPPING
 let $profile = document.querySelector(".profile");
 let profileBlanks = document.querySelectorAll(".inputText");
