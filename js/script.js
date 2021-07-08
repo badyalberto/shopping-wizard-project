@@ -1,3 +1,78 @@
+// Filling Finished Gaps
+let firstBuy = document.querySelector(".button-buy");
+firstBuy.addEventListener("click", filling);
+let versionVar = "";
+let totalPrice = document.getElementById("total-sum");
+let finishShipping = document.getElementById("finish-shipping");
+let totalString = "";
+
+function filling() {
+    document.getElementById("finish-name").innerHTML =
+        "<b>" + document.querySelector(".game-title").innerHTML + "</b>";
+    document.getElementById("finish-platform").innerHTML +=
+        " " +
+        "<b>" +
+        document.getElementById("select-option")[
+            document.getElementById("select-option").selectedIndex
+        ].textContent +
+        "</b>";
+    document.getElementById("finish-price").innerHTML +=
+        " " + "<b>" + document.getElementById("price").innerHTML + "</b>";
+    let edAttribute = document
+        .querySelector(".image-version-game.active")
+        .getAttribute("game-version");
+    switch (edAttribute) {
+        case "normal":
+            document.getElementById("finish-version").innerHTML +=
+                " " + "<b>" + "Simple" + "</b>";
+            break;
+        case "deluxe":
+            document.getElementById("finish-version").innerHTML +=
+                " " + "<b>" + "Deluxe" + "</b>";
+            break;
+        case "gold":
+            document.getElementById("finish-version").innerHTML +=
+                " " + "<b>" + "Gold" + "</b>";
+            break;
+        case "ultimate":
+            document.getElementById("finish-version").innerHTML +=
+                " " + "<b>" + "Premium" + "</b>";
+            break;
+        default:
+            break;
+    }
+}
+
+// Finished Div Page
+let termsCheck = document.getElementById("cbox1");
+let finalButton = document.getElementById("buy-now");
+
+function lastButton() {
+    if (!termsCheck.checked) {
+        alert(
+            "Ouch! It seems that you forgot to accept our terms and conditions. Try again!"
+        );
+    } else {
+        document
+            .querySelectorAll(".finished-order")
+            .forEach((element) => (element.style.display = "block"));
+        document.getElementById("cbox-button").style.display = "none";
+    }
+}
+
+finalButton.addEventListener("click", lastButton);
+// PRODUCT
+document
+    .querySelector("#select-option")
+    .addEventListener("change", versionGame);
+
+function addEventsImages() {
+    let imageVersions = document.querySelector("#editions").children;
+
+    for (let image of imageVersions) {
+        image.addEventListener("click", changeContentImagesLeftPrice);
+    }
+}
 // Section Address
 
 let $address = document.querySelector(".address");
@@ -113,10 +188,6 @@ function addEventsImages() {
     for (let image of imageVersions) {
         image.addEventListener("click", changeContentImagesLeftPrice);
     }
-
-    for (let image of imageVersions) {
-        image.addEventListener("click", changeContentImagesLeftPrice);
-    }
 }
 addEventsImages();
 
@@ -164,54 +235,9 @@ function changeContentImagesLeftPrice(e) {
     document
         .querySelector(".image-thumbnails")
         .setAttribute("src", `./images/${opt}_${version}_caratula.jpg`);
-
-    let version = e.target.getAttribute("game-version");
-    let imageVersions = document.querySelector("#editions").children;
-    let thumbnailsImages = document.querySelector(
-        ".thumbnails-images-product"
-    ).children;
-
-    //reset version games images
-    for (let image of imageVersions) {
-        image.classList.remove("active");
-    }
-
-    //Reset thumbsnails Images
-    for (let image of thumbnailsImages) {
-        image.classList.remove("active");
-    }
-
-    //add class active first child of .thumbnails-images-product
-    thumbnailsImages[0].classList.add("active");
-
-    switch (version) {
-        case "normal":
-            document.querySelector("#price").textContent = "39.95€";
-            break;
-        case "deluxe":
-            document.querySelector("#price").textContent = "49.95€";
-            break;
-        case "gold":
-            document.querySelector("#price").textContent = "59.95€";
-            break;
-        case "ultimate":
-            document.querySelector("#price").textContent = "69.95€";
-            break;
-        default:
-            break;
-    }
-    e.target.classList.toggle("active");
-    let opt = document.querySelector("#select-option").value;
-    document
-        .querySelector(".image-game")
-        .setAttribute("src", `./images/${opt}_${version}_caratula.jpg`);
-    document
-        .querySelector(".image-thumbnails")
-        .setAttribute("src", `./images/${opt}_${version}_caratula.jpg`);
 }
 
 function versionGame(e) {
-    console.log(e.target.value);
     switch (e.target.value) {
         case "pc":
             changeContentImagesVersion(e.target.value);
@@ -254,63 +280,11 @@ function changeContentImagesVersion(version = "") {
         editions.append(img4);
         addEventsImages();
     }
-    let editions = document.querySelector("#editions");
-    editions.innerHTML = "";
-
-    if (version !== "") {
-        let img1 = document.createElement("img");
-        let img2 = document.createElement("img");
-        let img3 = document.createElement("img");
-        let img4 = document.createElement("img");
-        img1.setAttribute("src", `./images/${version}_normal_caratula.jpg`);
-        img2.setAttribute("src", `./images/${version}_deluxe_caratula.jpg`);
-        img3.setAttribute("src", `./images/${version}_gold_caratula.jpg`);
-        img4.setAttribute("src", `./images/${version}_ultimate_caratula.jpg`);
-        img1.setAttribute("class", "image-version-game active");
-        img2.setAttribute("class", "image-version-game");
-        img3.setAttribute("class", "image-version-game");
-        img4.setAttribute("class", "image-version-game");
-        img1.setAttribute("game-version", "normal");
-        img2.setAttribute("game-version", "deluxe");
-        img3.setAttribute("game-version", "gold");
-        img4.setAttribute("game-version", "ultimate");
-        editions.append(img1);
-        editions.append(img2);
-        editions.append(img3);
-        editions.append(img4);
-        addEventsImages();
-    }
 }
 
 var thumbnails = document.querySelector(".thumbnails-images-product").children;
 
 for (let image of thumbnails) {
-    image.addEventListener("click", showBigImage);
-}
-
-function showBigImage(e) {
-    for (let image of thumbnails) {
-        image.classList.remove("active");
-    }
-
-    if (e.target.getAttribute("id-img") === "0") {
-        let platform = document.querySelector("#select-option").value;
-        let version = document
-            .querySelector(".image-version-game.active")
-            .getAttribute("game-version");
-        document
-            .querySelector(".image-game")
-            .setAttribute("src", `./images/${platform}_${version}_caratula.jpg`);
-    } else {
-        document
-            .querySelector(".image-game")
-            .setAttribute(
-                "src",
-                `./images/screen${e.target.getAttribute("id-img")}.jpg`
-            );
-    }
-
-    e.target.classList.toggle("active");
     image.addEventListener("click", showBigImage);
 }
 
@@ -424,7 +398,6 @@ function priceShipping(e) {
         default:
             break;
     }
-    errorShipping.remove();
 }
 
 function nextShipping(e) {
@@ -433,32 +406,88 @@ function nextShipping(e) {
     let correctForm = false;
     for (let i = 0; i < shipping.length; i++) {
         if (shipping[i].checked) {
-            document
-                .querySelector(".shipping-container")
-                .classList.add("transations-divs");
-            setTimeout(function() {
-                document.querySelector(".shipping").classList.add("display-none");
-            }, 1000);
-            document.querySelector(".finish").style.display = "block";
+            document.querySelector(".shipping").style.display = "none";
             correctForm = true;
-        }
-    }
-    let $divShipping = document.querySelector("#error-shipping");
+            let complex = document.querySelector(".shipping-type");
+            let inp = complex.querySelectorAll('input[name = "shipping"]');
+            console.log(inp);
+            let sel = "";
+            document.getElementById("finish-between").innerHTML +=
+                " " +
+                "<strong>" +
+                document.querySelector(".between").innerHTML +
+                "</strong>";
+            document.getElementById("finish-until").innerHTML +=
+                " " + "<b>" + document.querySelector(".until").innerHTML + "</b>";
 
-    if (!correctForm && $divShipping == null) {
-        let $buttons = document.querySelector(".buttons-form");
-        let $parent = document.querySelector(".shipping-type");
-        errorShipping.setAttribute("id", "error-shipping");
-        errorShipping.className = "error";
-        errorShipping.innerHTML = "Please select a shipment";
-        errorShipping.style.border = "2px solid red";
-        errorShipping.style.color = "red";
-        $parent.insertBefore(errorShipping, $buttons);
-        error = true;
+            for (let input of inp) {
+                if (input.checked) {
+                    sel = input.value;
+                }
+            }
+            console.log(sel);
+            switch (sel) {
+                case "free":
+                    finishShipping.innerHTML += " " + "<b>" + "0€" + "</b>";
+                    break;
+                case "extra":
+                    finishShipping.innerHTML += " " + "<b>" + "4.99€" + "</b>";
+                    break;
+                case "premium":
+                    finishShipping.innerHTML += " " + "<b>" + "9.99€" + "</b>";
+                    break;
+                default:
+                    break;
+            }
+            let totalString =
+                document
+                .getElementById("finish-price")
+                .textContent.substring(
+                    9,
+                    document.getElementById("finish-price").textContent.length - 1
+                ) +
+                "+" +
+                finishShipping.textContent.substring(
+                    10,
+                    finishShipping.textContent.length - 1
+                );
+            totalPrice.innerHTML +=
+                " " + "<b>" + eval(totalString).toFixed(2) + "€" + "</b>";
+        }
+        errorShipping.remove();
     }
 }
-if (!correctForm) {}
 
+/*function nextShipping(e) {
+  e.preventDefault();
+  let shipping = document.querySelectorAll('input[name="shipping"]');
+  let correctForm = false;
+  for (let i = 0; i < shipping.length; i++) {
+    if (shipping[i].checked) {
+      document
+        .querySelector(".shipping-container")
+        .classList.add("transations-divs");
+      setTimeout(function () {
+        document.querySelector(".shipping").classList.add("display-none");
+      }, 1000);
+      document.querySelector(".finish").style.display = "block";
+      correctForm = true;
+    }
+  }
+  let $divShipping = document.querySelector("#error-shipping");
+
+  if (!correctForm && $divShipping == null) {
+    let $buttons = document.querySelector(".buttons-form");
+    let $parent = document.querySelector(".shipping-type");
+    errorShipping.setAttribute("id", "error-shipping");
+    errorShipping.className = "error";
+    errorShipping.innerHTML = "Please select a shipment";
+    errorShipping.style.border = "2px solid red";
+    errorShipping.style.color = "red";
+    $parent.insertBefore(errorShipping, $buttons);
+    error = true;
+  }
+}*/
 //FIN SHIPPING
 let $profile = document.querySelector(".profile");
 let profileBlanks = document.querySelectorAll(".inputText");
