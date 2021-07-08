@@ -11,7 +11,15 @@
 
 <body>
     <header>
-        Logo
+        <div class="upper-header">
+            <button class="button-header">Games</button>
+            <button class="button-header">Consoles</button>
+            <button class="button-header">Devices</button>
+            <button class="button-header">Community</button>
+            <button class="button-header">Blog</button>
+        </div>
+        <div class="lower-header">
+        </div>
     </header>
     <div class="container">
         <div class="product">
@@ -129,16 +137,20 @@
             <input type="text" class="inputText" id="postal_code" required/> <br />
             <label id="country_label">Country</label><br />
             <select name="countries" from="countryform" class="inputText" id="countries">
-                        <option value="Spain">Spain</option>
-                        <option value="France">France</option>
-                        <option value="Andorre">Andorre</option>
-                </select><br />
+                <option value="Spain">Spain</option>
+                <option value="France">France</option>
+                <option value="Andorre">Andorre</option>
+                <option value="Andorre">Germany</option>
+                <option value="Andorre">Greece</option>
+            </select><br />
             <label id="phone_label">Phone</label><br />
             <select name=countries_tel from="telform" class="inputText" id="telform">
-                    <option value="ES">ES</option>
-                    <option value="FR">FR</option>
-                    <option value="AND">AND</option>
-                </select><input class="inputText" id="phone" required/> <br />
+                <option value="ES">ES</option>
+                <option value="FR">FR</option>
+                <option value="AND">AN</option>
+                <option value="DE">DE</option>
+                <option value="GR">GR</option>
+            </select><input class="inputText" id="phone" required/> <br />
             <input type="checkbox" class="inputText" id="regular" />
             <label>This is my regular address</label><br />
             <button class="clearForm" id="clear_address">Clear Form</button>
@@ -268,10 +280,10 @@
                                 <p id="finish-until">And</p>
                             </div>
                         </div>
-                        <div id="cbox-button ">
+                        <div id="cbox-button">
                             <input type="checkbox" id="cbox1" value="Terms and Conditions">
                             <label for="cbox1" id="labl1 ">I have read and I accept the terms and conditions</label>
-                            <input type="button" id="buy-now" value="Buy now">
+                            <input type="button" id="buy-now" value="Buy now" class="button-buy">
                         </div>
                     </div>
                     <div class="order-div">
