@@ -145,13 +145,16 @@ function checkGift(e) {
         .querySelector(".gift-message")
         .classList.toggle("gift-message-hidden");
 }
+let errorShipping = document.createElement("div");
 
 function clearFormShipping(e) {
     e.preventDefault();
     document.querySelector("#shipping-form").reset();
     document.querySelector(".gift-message").classList.add("gift-message-hidden");
     document.querySelector(".date-delivery").style.display = "none";
+    errorShipping.remove();
 }
+
 
 function priceShipping(e) {
     let date = new Date();
@@ -178,6 +181,7 @@ function priceShipping(e) {
         default:
             break;
     }
+    errorShipping.remove();
 }
 
 function nextShipping(e) {
@@ -186,12 +190,24 @@ function nextShipping(e) {
     let correctForm = false;
     for (let i = 0; i < shipping.length; i++) {
         if (shipping[i].checked) {
-            document.querySelector(".shipping").style.display = "none";
+            document.querySelector('.shipping-container').classList.add('transations-divs');
+            setTimeout(function() { document.querySelector('.shipping').classList.add('display-none'); }, 1000);
+            document.querySelector(".finish").style.display = "block";
             correctForm = true;
         }
     }
-    if (!correctForm) {
+    let $divShipping = document.querySelector('#error-shipping');
 
+    if (!correctForm && $divShipping == null) {
+        let $buttons = document.querySelector('.buttons-form');
+        let $parent = document.querySelector('.shipping-type');
+        errorShipping.setAttribute("id", "error-shipping");
+        errorShipping.className = "error";
+        errorShipping.innerHTML = "Please select a shipment";
+        errorShipping.style.border = "2px solid red";
+        errorShipping.style.color = "red";
+        $parent.insertBefore(errorShipping, $buttons);
+        error = true;
     }
 
 }
