@@ -27,7 +27,7 @@
                 <div class="image-big-product"><img class="image-game" src="./images/pc_normal_caratula.jpg" alt="assassin creed"></div>
             </div>
             <div class="product-right">
-                <p class="game-title"><strong>Assassin Creed</strong></p>
+                <p class="game-title"><strong>Assassin's Creed Odyssey</strong></p>
                 <p><strong>Price</strong></p>
                 <p id="price"><strong>59.95€</strong></p>
                 <p><strong>Version</strong></p>
@@ -99,42 +99,37 @@
                 <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
             </section>
             <h1>Address</h1>
-            <label>First Name</label><br />
-            <input type="text" class="inputText" /> <br />
-            <label>Last Name</label><br />
-            <input type="text" class="inputText" /> <br />
-            <label>Birthday</label><br />
-            <input type="date" class="inputText" /> <br />
-            <label>Address 1</label><br />
-            <input type="text" class="inputText" /> <br />
-            <label>Address 2</label><br />
-            <input type="text" class="inputText" /> <br />
-            <label>Postal Code</label><br />
-            <input type="text" class="inputText" /> <br />
-            <label>Country</label><br />
-            <select name="countries" from="countryform" class="inputText">
-                    <option value="Spain">Spain</option>
-                    <option value="France">France</option>
-                    <option value="Andorre">Andorre</option>
-            </select><br />
-            <label>Phone</label><br />
-            <select name=countries_tel from="telform" id="telForm" class="inputText">
-                <option value="ES">ES</option>
-                <option value="FR">FR</option>
-                <option value="AND">AND</option>
-            </select><input type="tel" class="inputText" list="cnames" />
-            <datalist id="countries_des" name="countries_des" list="countries2">
-                  <option value="ES">ES</option>
-                  <option value="FR">FR</option>
-                  <option value="AND">AND</option>
-              </datalist>
-            <br />
-            <input type="checkbox" class="inputText" />
-            <label>This is my regular address</label><br />
-            <button class="clearForm">Clear Form</button>
-            <button class="next">Next</button>
+                <label id="first_name_label">First Name</label><br />
+                <input type="text" class="inputText" id="first_name" required /> <br />
+                <label id="last_name_label">Last Name</label><br />
+                <input type="text" class="inputText" id="last_name" required /> <br />
+                <label id="birthday_label">Birthday</label><br />
+                <input type="date" class="inputText" id="birthday" required /> <br />
+                <label id="address_label">Address 1</label><br />
+                <input type="text" class="inputText" id="address1" required /> <br />
+                <label id="address_label2">Address 2</label><br />
+                <input type="text" class="inputText" id="address2" required /> <br />
+                <label id="postal_label">Postal Code</label><br />
+                <input type="text" class="inputText" id="postal_code" required/> <br />
+                <label id="country_label">Country</label><br />
+                <select name="countries" from="countryform"  class="inputText" id="countries">
+                        <option value="Spain">Spain</option>
+                        <option value="France">France</option>
+                        <option value="Andorre">Andorre</option>
+                </select><br />
+                <label id="phone_label">Phone</label><br />
+                <select name=countries_tel from="telform" class="inputText" id="telform">
+                    <option value="ES">ES</option>
+                    <option value="FR">FR</option>
+                    <option value="AND">AND</option>
+                </select><input class="inputText" id="phone" required/> <br />
+                <input type="checkbox" class="inputText" id="regular" />
+                <label>This is my regular address</label><br />
+                <button class="clearForm" id="clear_address">Clear Form</button>
+                <button class="next" id="next_address">Next</button>
         </div>
         <div class="shipping">
+            <!--
             <nav class="breadcrumb">
                 <div class="flexcrumb">
                     <p>Profile</p>
@@ -152,7 +147,15 @@
                     <p>Finish</p>
                     <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
                 </div>
-            </nav>
+            </nav>-->
+            <div class="menu">
+                <div class="breadcrumb">
+                    <a>Profile</a>
+                    <a>Address</a>
+                    <a class="active">Shipping</a>
+                    <a>Confirm</a>
+                </div>
+            </div>
             <div class="shipping-container">
                 <form id="shipping-form">
                     <div class="shipping-type">
@@ -160,18 +163,18 @@
                         <h3>Shipping type</h3>
                         <div class="select-option-shipping">
                             <input type="radio" name="shipping" value="free">
-                            <label for="html">Free shipment (72H)</label>
+                            <label>Free shipment (72H)</label>
                         </div>
                         <div class="select-option-shipping">
                             <input type="radio" name="shipping" value="extra">
-                            <label for="css">Extra shipping (48H)</label><strong> 4,99€</strong></span>
+                            <label>Extra shipping (48H)</label><strong> 4,99€</strong></span>
                         </div>
                         <div class="select-option-shipping">
                             <input type="radio" name="shipping" value="premium">
-                            <label for="javascript">Premium (24H)</label><strong> 9,99€</strong></span>
+                            <label>Premium (24H)</label><strong> 9,99€</strong></span>
                         </div>
                         <div class="select-option-shipping">
-                            <label><input type="checkbox" class="check-gift"> Is it a gift?</label>
+                            <input type="checkbox" class="check-gift checkbox-message"><label>Is it a gift?</label>
                         </div>
                         <div class="date-delivery date-delivery-hidden">
                             <p><strong>Your order will arrive</strong></p>
@@ -195,7 +198,7 @@
                     <p>You stared registering
                         <span><strong>3 min ago.</strong></span>
                     </p>
-                    <p> Hurry up!</p>
+                    <p> Hurry up! &#9940;</p>
                 </div>
             </div>
         </div>
@@ -203,7 +206,7 @@
             <nav class="breadcrumb">
                 <div class="flexcrumb">
                     <p>Profile</p>
-                    <img src="/css/clipboard-check-solid.svg" class="breadcrumb-img" alt="">
+                    <img src="/css/clipboard-check-solid.svg " class="breadcrumb-img" alt="">
                 </div>
                 <div class="flexcrumb">
                     <p>Address</p>
@@ -231,29 +234,29 @@
                     <div class="purchase-div">
                         <h2>Your Purchase</h2>
                         <div>
-                            <img src="" alt="">
+                            <img src=" " alt="">
                             <div>
-                                <h3>Selected Videogame</h3>
-                                <p>Version:</p>
-                                <p>Platform</p>
+                                <h3 id="finish-name">Selected Videogame</h3>
+                                <p id="finish-version">Version:</p>
+                                <p id="finish-platform">Platform:</p>
                                 <p>Estimate Deliver Date:</p>
-                                <p>Between</p>
-                                <p>And</p>
+                                <p id="finish-between">Between</p>
+                                <p id="finish-until">And</p>
                             </div>
                         </div>
-                        <div id="cbox-button">
+                        <div id="cbox-button ">
                             <input type="checkbox" id="cbox1" value="Terms and Conditions">
-                            <label for="cbox1" id="labl1">I have read and I accept the terms and conditions</label>
+                            <label for="cbox1" id="labl1 ">I have read and I accept the terms and conditions</label>
                             <input type="button" id="buy-now" value="Buy now">
                         </div>
                     </div>
                     <div class="order-div">
                         <h2>Your order</h2>
                         <hr>
-                        <p>Article:</p>
-                        <p>Shipping:</p>
+                        <p id="finish-price">Article:</p>
+                        <p id="finish-shipping">Shipping:</p>
                         <hr>
-                        <p>Total:</p>
+                        <p id="total-sum">Total:</p>
                     </div>
                 </div>
                 <div class="finished-order">
@@ -264,6 +267,7 @@
     </div>
     </div>
     <footer>
+        &copy;2021 Game Shop
     </footer>
     <script src="./js/script.js"></script>
 </body>
