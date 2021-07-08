@@ -113,8 +113,20 @@ button {
 /* FIN SECTION PRODUCT */
 
 /*SECTION ADDRESS*/
-#telForm {
-  max-width: 5.5%;
+.inputError {
+  border: 2px solid red;
+  color: red;
+  height: 30px;
+  width: 350px;
+  margin: 12px 0px 30px 0px;
+}
+#telform {
+  width: 61px;
+  border: collapse;
+}
+#phone {
+  border: collapse;
+  width: 284px;
 }
 /*FIN SECTION ADDRESS*/
 

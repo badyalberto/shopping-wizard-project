@@ -87,40 +87,34 @@
                 <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
             </section>
             <h1>Address</h1>
-            <label>First Name</label><br />
-            <input type="text" class="inputText" /> <br />
-            <label>Last Name</label><br />
-            <input type="text" class="inputText" /> <br />
-            <label>Birthday</label><br />
-            <input type="date" class="inputText" /> <br />
-            <label>Address 1</label><br />
-            <input type="text" class="inputText" /> <br />
-            <label>Address 2</label><br />
-            <input type="text" class="inputText" /> <br />
-            <label>Postal Code</label><br />
-            <input type="text" class="inputText" /> <br />
-            <label>Country</label><br />
-            <select name="countries" from="countryform"  class="inputText">
-                    <option value="Spain">Spain</option>
-                    <option value="France">France</option>
-                    <option value="Andorre">Andorre</option>
-            </select><br />
-            <label>Phone</label><br />
-            <select name=countries_tel from="telform" id="telForm" class="inputText">
-                <option value="ES">ES</option>
-                <option value="FR">FR</option>
-                <option value="AND">AND</option>
-            </select><input type="tel" class="inputText" list="cnames" />
-              <datalist id="countries_des" name="countries_des" list="countries2">
-                  <option value="ES">ES</option>
-                  <option value="FR">FR</option>
-                  <option value="AND">AND</option>
-              </datalist>
-             <br />
-            <input type="checkbox" class="inputText"/>
-            <label>This is my regular address</label><br />
-            <button class="clearForm">Clear Form</button>
-            <button class="next">Next</button>
+                <label id="first_name_label">First Name</label><br />
+                <input type="text" class="inputText" id="first_name" required /> <br />
+                <label id="last_name_label">Last Name</label><br />
+                <input type="text" class="inputText" id="last_name" required /> <br />
+                <label id="birthday_label">Birthday</label><br />
+                <input type="date" class="inputText" id="birthday" required /> <br />
+                <label id="address_label">Address 1</label><br />
+                <input type="text" class="inputText" id="address1" required /> <br />
+                <label>Address 2</label><br />
+                <input type="text" class="inputText" id="address2" required /> <br />
+                <label id="postal_label">Postal Code</label><br />
+                <input type="text" class="inputText" id="postal_code" required/> <br />
+                <label id="country_label">Country</label><br />
+                <select name="countries" from="countryform"  class="inputText">
+                        <option value="Spain">Spain</option>
+                        <option value="France">France</option>
+                        <option value="Andorre">Andorre</option>
+                </select><br />
+                <label id="phone_label">Phone</label><br />
+                <select name=countries_tel from="telform" class="inputText" id="telform">
+                    <option value="ES">ES</option>
+                    <option value="FR">FR</option>
+                    <option value="AND">AND</option>
+                </select><input class="inputText" id="phone" required/> <br />
+                <input type="checkbox" class="inputText" id="regular" />
+                <label>This is my regular address</label><br />
+                <button class="clearForm" id="clear_address">Clear Form</button>
+                <button class="next" id="next_address">Next</button>
         </div>
         <div class="shipping">
             <nav class="breadcrumb">
