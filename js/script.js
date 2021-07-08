@@ -18,9 +18,9 @@ function filling() {
     "</b>";
   document.getElementById("finish-price").innerHTML +=
     " " + "<b>" + document.getElementById("price").innerHTML + "</b>";
-  let edCollection = document.getElementById("editions");
-  let edSingle = edCollection.querySelector(".active");
-  let edAttribute = edSingle.getAttribute("game-version");
+  let edAttribute = document
+    .querySelector(".image-version-game.active")
+    .getAttribute("game-version");
   switch (edAttribute) {
     case "normal":
       document.getElementById("finish-version").innerHTML +=
@@ -122,7 +122,6 @@ function changeContentImagesLeftPrice(e) {
 }
 
 function versionGame(e) {
-  console.log(e.target.value);
   switch (e.target.value) {
     case "pc":
       changeContentImagesVersion(e.target.value);
@@ -305,7 +304,6 @@ function nextShipping(e) {
           10,
           finishShipping.textContent.length - 1
         );
-      console.log(totalString);
       totalPrice.innerHTML +=
         " " + "<b>" + eval(totalString).toFixed(2) + "€" + "</b>";
     }
