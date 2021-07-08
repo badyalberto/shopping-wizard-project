@@ -16,28 +16,35 @@
     <div class="container">
         <div class="product">
             <div class="product-left">
-                <div class="thumbnails-images-product"></div>
-                <div class="image-big-product"><img class="image-game" src="./images/pc_caratula.jpg" alt="assassin creed"></div>
+                <div class="thumbnails-images-product">
+                    <img class="image-thumbnails active" id-img="0" src="./images/pc_normal_caratula.jpg" alt="">
+                    <img class="image-thumbnails" id-img="1" src="./images/screen1.jpg" alt="">
+                    <img class="image-thumbnails" id-img="2" src="./images/screen2.jpg" alt="">
+                    <img class="image-thumbnails" id-img="3" src="./images/screen3.jpg" alt="">
+                    <img class="image-thumbnails" id-img="4" src="./images/screen4.jpg" alt="">
+                    <img class="image-thumbnails" id-img="5" src="./images/screen5.jpg" alt="">
+                </div>
+                <div class="image-big-product"><img class="image-game" src="./images/pc_normal_caratula.jpg" alt="assassin creed"></div>
             </div>
             <div class="product-right">
-                <p>Assassin Creed</p>
-                <p>Price</p>
-                <p>59.95€</p>
-                <p>Version</p>
-                <select>
+                <p class="game-title"><strong>Assassin Creed</strong></p>
+                <p><strong>Price</strong></p>
+                <p id="price"><strong>59.95€</strong></p>
+                <p><strong>Version</strong></p>
+                <select id="select-option">
                     <option value="pc">PC Version</option>
                     <option value="xbox">XBOX Version</option>
                     <option value="play">PLAY STATION Version</option>
                     <!--<option value="switch">SWITCH Version</option>-->
                 </select>
-                <p>Editions</p>
-                <div class="editions">
-                    <img src="./images/pc_caratula.jpg" alt="">
-                    <img src="./images/pc_deluxe_caratula.jpg" alt="">
-                    <img src="./images/pc_gold_caratula.jpg" alt="">
-                    <img src="./images/pc_ultimate_caratula.jpg" alt="">
+                <p><strong>Editions</strong></p>
+                <div class="editions" id="editions">
+                    <img game-version="normal" class="image-version-game active" src="./images/pc_normal_caratula.jpg" alt="">
+                    <img game-version="deluxe" class="image-version-game" src="./images/pc_deluxe_caratula.jpg" alt="">
+                    <img game-version="gold" class="image-version-game" src="./images/pc_gold_caratula.jpg" alt="">
+                    <img game-version="ultimate" class="image-version-game" src="./images/pc_ultimate_caratula.jpg" alt="">
                 </div>
-                <button class="next">Buy</button>
+                <button class="button-buy">Buy</button>
             </div>
         </div>
         <div class="profile">
@@ -59,21 +66,26 @@
                     <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
                 </div>
             </nav>
-            <h1 class="headingProfile"></h1>Profile</h1>
-            <label>Username</label> <br />
+            <h1 class="headingProfile">Profile</h1>
 
-            <input type="text" class="inputText" /> <br />
-            <label>Email</label><br />
+            <div class="userName" id="label">Username</div>
+            <br />
+            <input type="text" class="inputText" id="usernameInput" /> <br />
 
-            <input type="text" class="inputText" /><br />
-            <label>Password</label><br />
+            <div class="Email" id="label">Email</div>
+            <br />
+            <input type="email" class="inputText" id="EmailInput" /><br />
 
-            <input type="text" class="inputText" /><br />
-            <label>Confirm Password</label><br />
+            <div class="password" id="label">Password</div>
+            <br />
+            <input type="password" class="inputText" id="passInput" /><br />
 
-            <input type="text" class="inputText" /><br />
-            <button class="clearForm">Clear Form</button>
-            <button class="next">Next</button>
+            <div class="confirmPassword" id="label">Confirm Password</div>
+            <br />
+            <input type="password" class="inputText" id="confirmPassInput" /><br />
+
+            <button class="clearForm" id="clearProfile">Clear Form</button>
+            <button class="next" id="nextProfile">Next</button>
         </div>
         <div class="address">
             <section class="breadcrumb">
@@ -95,12 +107,12 @@
                 <input type="date" class="inputText" id="birthday" required /> <br />
                 <label id="address_label">Address 1</label><br />
                 <input type="text" class="inputText" id="address1" required /> <br />
-                <label>Address 2</label><br />
+                <label id="address_label2">Address 2</label><br />
                 <input type="text" class="inputText" id="address2" required /> <br />
                 <label id="postal_label">Postal Code</label><br />
                 <input type="text" class="inputText" id="postal_code" required/> <br />
                 <label id="country_label">Country</label><br />
-                <select name="countries" from="countryform"  class="inputText">
+                <select name="countries" from="countryform"  class="inputText" id="countries">
                         <option value="Spain">Spain</option>
                         <option value="France">France</option>
                         <option value="Andorre">Andorre</option>
