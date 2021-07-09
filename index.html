@@ -11,15 +11,20 @@
 
 <body>
     <header>
+        <div class="time-shipping">
+            <p>You stared registering
+                <span><strong id="minutes-shopping">3 min ago.</strong></span>
+            </p>
+            <p> Hurry up! &#9940;</p>
+        </div>
         <div class="upper-header">
             <button class="button-header">Games</button>
             <button class="button-header">Consoles</button>
             <button class="button-header">Devices</button>
             <button class="button-header">Community</button>
             <button class="button-header">Blog</button>
-        </div>
-        <div class="lower-header">
-        </div>
+            </divgi>
+            <div class="lower-header">
     </header>
     <div class="container">
         <div class="product">
@@ -55,25 +60,7 @@
                 <button class="button-buy">Buy</button>
             </div>
         </div>
-        <div class="profile">
-            <!--<nav class="breadcrumb">
-                <div class="flexcrumb">
-                    <p>Profile</p>
-                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
-                </div>
-                <div class="flexcrumb">
-                    <p>Address</p>
-                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
-                </div>
-                <div class="flexcrumb">
-                    <p>Shipping</p>
-                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
-                </div>
-                <div class="flexcrumb">
-                    <p>Finish</p>
-                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
-                </div>
-            </nav>-->
+        <div class="profile is-hidden">
             <div class="menu">
                 <div class="breadcrumb">
                     <a class="active">Profile</a>
@@ -103,17 +90,7 @@
             <button class="clearForm" id="clearProfile">Clear Form</button>
             <button class="next" id="nextProfile">Next</button>
         </div>
-        <div class="address">
-            <!--<section class="breadcrumb">
-                <p>Profile</p>
-                <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
-                <p>Address</p>
-                <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
-                <p>Shipping</p>
-                <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
-                <p>Finish</p>
-                <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
-            </section>-->
+        <div class="address is-hidden">
             <div class="menu">
                 <div class="breadcrumb">
                     <a>Profile</a>
@@ -134,7 +111,7 @@
             <label id="address_label2">Address 2</label><br />
             <input type="text" class="inputText" id="address2" required /> <br />
             <label id="postal_label">Postal Code</label><br />
-            <input type="text" class="inputText" id="postal_code" required/> <br />
+            <input type="number" class="inputText" id="postal_code" required/> <br />
             <label id="country_label">Country</label><br />
             <select name="countries" from="countryform" class="inputText" id="countries">
                 <option value="Spain">Spain</option>
@@ -156,26 +133,7 @@
             <button class="clearForm" id="clear_address">Clear Form</button>
             <button class="next" id="next_address">Next</button>
         </div>
-        <div class="shipping">
-            <!--
-            <nav class="breadcrumb">
-                <div class="flexcrumb">
-                    <p>Profile</p>
-                    <img src="/css/clipboard-check-solid.svg" class="breadcrumb-img" alt="">
-                </div>
-                <div class="flexcrumb">
-                    <p>Address</p>
-                    <img src="/css/clipboard-check-solid.svg" class="breadcrumb-img" alt="">
-                </div>
-                <div class="flexcrumb">
-                    <p>Shipping</p>
-                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
-                </div>
-                <div class="flexcrumb">
-                    <p>Finish</p>
-                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
-                </div>
-            </nav>-->
+        <div class="shipping is-hidden">
             <div class="menu">
                 <div class="breadcrumb">
                     <a>Profile</a>
@@ -212,8 +170,9 @@
                         <div class="gift-message gift-message-hidden">
                             <label>Gift Message:</label><br>
 
-                            <textarea class="text-gift" rows="10" cols="40"></textarea>
-                            <button class="button-select-image"> Select image <img src="/css/images-solid.svg" class="image-icon" alt=""></button>
+                            <textarea class="text-gift" rows="10" cols="40" maxlength="50"></textarea>
+                            <label class="label-gift">Gift wrapper image:</label><br>
+                            <input class="button-select-image image-add-file" value="Select image" type="button" accept="image/png, image/jpeg" />
                         </div>
                         <div class="buttons-form">
                             <button class="clearForm" id="clear-form-shipping">Clear Form</button>
@@ -222,33 +181,9 @@
                         <div class="clearfix"></div>
                     </div>
                 </form>
-                <div class="time-shipping">
-                    <p>You stared registering
-                        <span><strong>3 min ago.</strong></span>
-                    </p>
-                    <p> Hurry up! &#9940;</p>
-                </div>
             </div>
         </div>
-        <div class="finish">
-            <!--<nav class="breadcrumb">
-                <div class="flexcrumb">
-                    <p>Profile</p>
-                    <img src="/css/clipboard-check-solid.svg " class="breadcrumb-img" alt="">
-                </div>
-                <div class="flexcrumb">
-                    <p>Address</p>
-                    <img src="/css/clipboard-check-solid.svg" class="breadcrumb-img" alt="">
-                </div>
-                <div class="flexcrumb">
-                    <p>Shipping</p>
-                    <img src="/css/clipboard-check-solid.svg" class="breadcrumb-img" alt="">
-                </div>
-                <div class="flexcrumb">
-                    <p>Finish</p>
-                    <img src="/css/clipboard-solid.svg" class="breadcrumb-img" alt="">
-                </div>
-            </nav>-->
+        <div class="finish is-hidden">
             <div class="menu">
                 <div class="breadcrumb">
                     <a>Profile</a>
@@ -306,7 +241,7 @@
                     </div>
                 </div>
                 <div class="finished-order">
-                    <p>Your shopping process took</p>
+                    <p id="total-time">Your shopping process took</p>
                 </div>
             </div>
         </div>

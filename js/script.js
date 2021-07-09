@@ -7,8 +7,8 @@ let finishShipping = document.getElementById("finish-shipping");
 let totalString = "";
 
 function filling() {
-    document.querySelector('.product').style.display = 'none';
-    document.querySelector('.profile').style.display = 'block';
+    //document.querySelector('.product').style.display = 'none';
+    //document.querySelector('.profile').style.display = 'block';
     document.getElementById("finish-name").innerHTML =
         "<b>" + document.querySelector(".game-title").innerHTML + "</b>";
     document.getElementById("finish-platform").innerHTML +=
@@ -43,6 +43,10 @@ function filling() {
         default:
             break;
     }
+    document.querySelector(".product").classList.add("is-hidden");
+    document.querySelector(".profile").classList.remove("is-hidden");
+    console.time("t1");
+    timer();
 }
 
 // Finished Div Page
@@ -59,6 +63,11 @@ function lastButton() {
             .querySelectorAll(".finished-order")
             .forEach((element) => (element.style.display = "block"));
         document.getElementById("cbox-button").style.display = "none";
+        document.querySelector(".time-shipping").style.opacity = "0";
+        clearInterval(interval);
+        document.querySelector(
+            "#total-time"
+        ).innerHTML = `Your shopping process took: <strong>${minutesShopping} minutes ${secondsShopping} seconds</strong>`;
     }
 }
 
@@ -158,8 +167,10 @@ function goNextAddress() {
         $address.insertBefore(popUpPhone, regular);
     }
     if ($address.querySelectorAll(".error").length == 0) {
-        $address.style.display = "none";
-        document.querySelector(".shipping").style.display = "block";
+        $address.classList.add("is-hidden");
+        document.querySelector(".shipping").classList.remove("is-hidden");
+        //$address.style.display = "none";
+        //document.querySelector(".shipping").style.display = "block";
     }
 }
 
@@ -381,21 +392,25 @@ function priceShipping(e) {
     let between = document.querySelector(".between");
     let until = document.querySelector(".until");
     let lastDate = "";
+    let dayWithZeros = "";
     switch (e.target.value) {
         case "free":
-            between.textContent = `${date.toDateString()} ${date.getHours()}:00h`;
-            lastDate = new Date(addDays(date, 3));
-            until.textContent = `${lastDate.toDateString()} ${date.getHours()}:00h`;
+            dayWithZeros = addZerosDate(date);
+            between.textContent = `${dayWithZeros} ${date.getHours()}:00h`;
+            lastDate = addZerosDate(new Date(addDays(date, 3)));
+            until.textContent = `${lastDate} ${date.getHours()}:00h`;
             break;
         case "extra":
-            between.textContent = `${date.toDateString()} ${date.getHours()}:00h`;
-            lastDate = new Date(addDays(date, 2));
-            until.textContent = `${lastDate.toDateString()} ${date.getHours()}:00h`;
+            dayWithZeros = addZerosDate(date);
+            between.textContent = `${dayWithZeros} ${date.getHours()}:00h`;
+            lastDate = addZerosDate(new Date(addDays(date, 2)));
+            until.textContent = `${lastDate} ${date.getHours()}:00h`;
             break;
         case "premium":
-            between.textContent = `${date.toDateString()} ${date.getHours()}:00h`;
-            lastDate = new Date(addDays(date, 1));
-            until.textContent = `${lastDate.toDateString()} ${date.getHours()}:00h`;
+            dayWithZeros = addZerosDate(date);
+            between.textContent = `${dayWithZeros} ${date.getHours()}:00h`;
+            lastDate = addZerosDate(new Date(addDays(date, 1)));
+            until.textContent = `${lastDate} ${date.getHours()}:00h`;
             break;
         default:
             break;
@@ -404,6 +419,22 @@ function priceShipping(e) {
     if ($divShipping !== null) {
         $divShipping.remove();
     }
+}
+
+function addZerosDate(date) {
+    let day, month, year;
+    if (date.getDate() < 10) {
+        day = "0" + date.getDate();
+    } else {
+        day = date.getDate();
+    }
+    if (date.getMonth() + 1 < 10) {
+        month = "0" + date.getMonth();
+    } else {
+        month = date.getMonth();
+    }
+
+    return `${day}/${month}/${date.getFullYear()}`;
 }
 
 function nextShipping(e) {
@@ -459,14 +490,9 @@ function nextShipping(e) {
                 );
             totalPrice.innerHTML +=
                 " " + "<b>" + eval(totalString).toFixed(2) + "€" + "</b>";
-
-            document
-                .querySelector(".shipping-container")
-                .classList.add("transations-divs");
-            setTimeout(function() {
-                document.querySelector(".shipping").classList.add("display-none");
-            }, 1000);
-            document.querySelector(".finish").style.display = "block";
+            document.querySelector(".shipping").classList.add("is-hidden");
+            document.querySelector(".finish").classList.remove("is-hidden");
+            //document.querySelector(".finish").style.display = "block";
             correctForm = true;
         }
         errorShipping.remove();
@@ -487,36 +513,6 @@ function nextShipping(e) {
     }
 }
 
-/*function nextShipping(e) {
-  e.preventDefault();
-  let shipping = document.querySelectorAll('input[name="shipping"]');
-  let correctForm = false;
-  for (let i = 0; i < shipping.length; i++) {
-    if (shipping[i].checked) {
-      document
-        .querySelector(".shipping-container")
-        .classList.add("transations-divs");
-      setTimeout(function () {
-        document.querySelector(".shipping").classList.add("display-none");
-      }, 1000);
-      document.querySelector(".finish").style.display = "block";
-      correctForm = true;
-    }
-  }
-  let $divShipping = document.querySelector("#error-shipping");
-
-  if (!correctForm && $divShipping == null) {
-    let $buttons = document.querySelector(".buttons-form");
-    let $parent = document.querySelector(".shipping-type");
-    errorShipping.setAttribute("id", "error-shipping");
-    errorShipping.className = "error";
-    errorShipping.innerHTML = "Please select a shipment";
-    errorShipping.style.border = "2px solid red";
-    errorShipping.style.color = "red";
-    $parent.insertBefore(errorShipping, $buttons);
-    error = true;
-  }
-}*/
 //FIN SHIPPING
 let $profile = document.querySelector(".profile");
 let profileBlanks = document.querySelectorAll(".inputText");
@@ -531,6 +527,7 @@ let password = document.querySelector(".password");
 let passwordInput = document.getElementById("passInput");
 let confirmPassword = document.querySelector(".confirmPassword");
 let confirmPassInput = document.getElementById("confirmPassInput");
+
 // Validation Funtion
 nextButton.addEventListener("click", empty);
 
@@ -581,8 +578,10 @@ function empty() {
         }
 
         if ($profile.querySelectorAll(".error").length == 0) {
-            $profile.style.display = "none";
-            document.querySelector(".address").style.display = "block";
+            $profile.classList.add("is-hidden");
+            document.querySelector(".address").classList.remove("is-hidden");
+            //$profile.style.display = "none";
+            //document.querySelector(".address").style.display = "block";
         }
     }
 }
@@ -648,3 +647,36 @@ function clearAll() {
     confirmPassword.style.color = "black";
     confirmPassInput.style.border = "2px solid black";
 }
+
+//TIMER
+
+var inteval = "";
+
+let minutesShopping = 0;
+let secondsShopping = 0;
+
+function timer() {
+    let cont = 0;
+    setInterval(function() {
+        secondsShopping++;
+        if (secondsShopping === 60) {
+            minutesShopping++;
+            secondsShopping = 0;
+        }
+    }, 1000);
+
+    interval = setInterval(function() {
+        cont++;
+        document.querySelector(".time-shipping").style.opacity = "1";
+        document.querySelector(".time-shipping").style.top = "30%";
+        document.querySelector(".time-shipping").style.right = "5%";
+        document.querySelector(
+            "#minutes-shopping "
+        ).textContent = `${cont} minutes ago.`;
+        if (cont === 5) {
+            location.reload();
+        }
+    }, 10000);
+}
+
+//FIN TIMER
