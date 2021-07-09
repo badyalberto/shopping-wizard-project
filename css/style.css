@@ -11,17 +11,20 @@ body {
     height: 100%;
 }
 
+.logo {
+    height: 40px;
+    width: 40px;
+}
+
 
 /* HEADER */
 
 header {
     height: 120px;
-    background-color: lightgray;
     margin-bottom: 5%;
-    background-color: black;
+    background: grey;
     color: white;
-    display: flex;
-    justify-content: center;
+    display: flow-root;
     font-weight: bold;
     align-items: center;
 }
@@ -50,7 +53,7 @@ header {
 .profile {
     margin: 5%;
     font-family: sans-serif;
-    display: none;
+    display: block;
 }
 
 .menu {
@@ -244,7 +247,7 @@ button {
 
 .address {
     margin-left: 5%;
-    display: none;
+    display: block;
 }
 
 
@@ -260,7 +263,9 @@ select {
     font-weight: bold;
     border-color: transparent;
     font-size: 1em;
-    padding: 0px 0px 0px 20px;
+    padding: 0px 0px 0px 10px;
+    border-radius: 5px;
+    border: 2px solid black;
 }
 
 .product {
@@ -429,7 +434,7 @@ select {
 /* SECTION SHIPPING */
 
 .shipping {
-    display: none;
+    display: block;
 }
 
 .transations-divs {
@@ -448,7 +453,7 @@ select {
 }
 
 .display-none {
-    display: none;
+    display: block;
 }
 
 .shipping-container {
@@ -478,7 +483,7 @@ select {
 }
 
 .time-shipping:before {
-    content: '';
+    content: "";
     position: absolute;
     z-index: -1;
     width: 80px;
@@ -534,7 +539,7 @@ select {
     width: 30px;
     height: 20px;
     margin: 20px 10px 10px 0;
-    vertical-align: -5PX;
+    vertical-align: -5px;
 }
 
 #error-shipping {
