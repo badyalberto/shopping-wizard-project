@@ -676,7 +676,7 @@ function timer() {
         if (cont === 5) {
             location.reload();
         }
-    }, 10000);
+    }, 60000);
 }
 
 //FIN TIMER

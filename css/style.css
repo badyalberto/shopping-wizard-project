@@ -80,7 +80,6 @@ header {
     display: flex;
     justify-content: center;
     padding-top: 5%;
-    background-color: lightgrey;
 }
 
 .breadcrumb {
@@ -289,7 +288,7 @@ select {
 .product {
     display: flex;
     justify-content: space-around;
-    padding: 14% 0;
+    padding: 4% 0 30% 0;
 }
 
 .product-left {
@@ -613,7 +612,6 @@ input.image-add-file {
 /*Finish Div*/
 
 .background-div {
-    background-color: lightgrey;
     padding: 110px 80px 70px 80px;
     margin-bottom: 80px;
     /*display: none;*/
@@ -638,12 +636,18 @@ input.image-add-file {
     flex-basis: 60%;
     margin-right: 50px;
     padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #b81515;
+    box-shadow: 3px 3px 3px #b81515;
 }
 
 .order-div {
     background-color: white;
     flex-basis: 40%;
     padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #b81515;
+    box-shadow: 3px 3px 3px #b81515;
 }
 
 
