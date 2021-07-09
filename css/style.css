@@ -4,11 +4,15 @@
 }
 
 body {
+    position: relative;
     box-sizing: border-box;
     margin: 0 auto;
-    border: 1px solid black;
     width: 80%;
-    height: 100%;
+    background: url(../images/background.jpg);
+}
+
+.container {
+    background-color: white;
 }
 
 
@@ -16,10 +20,22 @@ body {
 
 header {
     height: 120px;
-    margin-bottom: 5%;
+    background-color: lightgray;
     background-color: black;
     color: white;
-    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    align-items: center;
+}
+
+.oval {
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    height: 102px;
+    width: 80%;
+    background: black;
 }
 
 .upper-header {
@@ -30,6 +46,8 @@ header {
     width: 100%;
     height: 45%;
 }
+
+.lower-header {}
 
 
 /* FIN HEADER */
@@ -53,14 +71,15 @@ header {
 }
 
 .profile {
-    margin: 5%;
+    margin: 0 5% 10% 5%;
     font-family: sans-serif;
-    display: none;
+    padding-bottom: 40px;
 }
 
 .menu {
     display: flex;
     justify-content: center;
+    padding-top: 5%;
 }
 
 .breadcrumb {
@@ -101,20 +120,12 @@ header {
     padding-right: 20px;
 }
 
-.breadcrumb a.active
-/*,
-.breadcrumb a:hover*/
-
-{
+.breadcrumb a.active {
     background: #333;
     background: linear-gradient(#333, #000);
 }
 
-.breadcrumb a.active:after
-/*,
-.breadcrumb a:hover:after */
-
-{
+.breadcrumb a.active:after {
     background: #333;
     background: linear-gradient(135deg, #333, #000);
 }
@@ -184,7 +195,7 @@ header {
     width: 350px;
     border: 2px solid black;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #label {
@@ -219,6 +230,10 @@ button {
     cursor: pointer;
 }
 
+.is-hidden {
+    display: none !important;
+}
+
 
 /* FIN INPUTS COMMON FORM */
 
@@ -235,7 +250,7 @@ button {
     padding-left: 10px;
     color: rgb(119, 26, 26);
     font-size: 15px;
-    margin: 10px 0;
+    margin-bottom: 10px;
     /*This should be "margin: 10px 0;"*/
     align-items: center;
 }
@@ -250,7 +265,7 @@ button {
 
 .address {
     margin-left: 5%;
-    display: none;
+    padding: 0px 0px 170px 0px;
 }
 
 
@@ -273,7 +288,7 @@ select {
 .product {
     display: flex;
     justify-content: space-around;
-    margin: 50px 30px;
+    padding: 14% 0;
 }
 
 .product-left {
@@ -420,10 +435,11 @@ select {
 
 .inputError {
     border: 2px solid red;
+    border-radius: 5px;
     color: red;
     height: 30px;
     width: 350px;
-    margin: 12px 0px 0px 0px;
+    margin: 12px 0px 12px 0px;
 }
 
 #birthday {
@@ -460,22 +476,9 @@ select {
 /* SECTION SHIPPING */
 
 .shipping {
-    display: none;
-}
-
-.transations-divs {
-    animation: slide 1s linear;
-}
-
-@keyframes slide {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(150%);
-        opacity: 0;
-    }
+    display: block;
+    padding: 0px 39px 158px 40px;
+    margin-bottom: 50px;
 }
 
 .display-none {
@@ -501,8 +504,7 @@ select {
     background-color: #b81515;
     height: 6em;
     padding: 0.5em 1em 1.5em 2em;
-    top: 3%;
-    right: 3%;
+    opacity: 0;
     border-radius: 25%;
     color: white;
     box-shadow: 0 10px 6px -6px grey;
@@ -550,6 +552,26 @@ select {
     padding-left: 5px;
 }
 
+.label-gift {
+    display: block;
+}
+
+input.image-add-file {
+    background: url(./images-solid.svg);
+    background-size: 50px 20px;
+    background-repeat: no-repeat;
+    background-position: 75% 5px;
+    border: 1px solid red;
+    cursor: pointer;
+    height: 34px;
+    width: 23%;
+    line-height: 4px;
+    font-weight: bold;
+    background-color: #b81515;
+    color: white;
+    padding-left: 0px;
+}
+
 .buttons-form {
     float: left;
     clear: both;
@@ -588,13 +610,11 @@ select {
 
 /*Finish Div*/
 
-.finish {
-    display: none;
-}
-
 .background-div {
     background-color: lightgrey;
-    padding: 20px 80px;
+    padding: 110px 80px 70px 80px;
+    margin-bottom: 80px;
+    /*display: none;*/
 }
 
 .div-flex {
@@ -638,6 +658,9 @@ footer {
     background-color: black;
     font-weight: bold;
     color: white;
+    position: fixed;
+    width: 80%;
+    bottom: 0;
 }
 
 
