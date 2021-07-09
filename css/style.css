@@ -79,7 +79,7 @@ header {
 .menu {
     display: flex;
     justify-content: center;
-    padding-top: 5%;
+    padding: 7% 0;
 }
 
 .breadcrumb {
