@@ -558,3 +558,26 @@ function clearAll() {
   confirmPassword.style.color = "black";
   confirmPassInput.style.border = "2px solid black";
 }
+
+function timing() {
+  setTimeout(function myShipp() {
+    if (document.querySelector(".shipping").style.display == "block") {
+      document.getElementById("time-warner1").style.display = "block";
+      console.log(document.getElementById("time-warner1").style.display);
+      console.log(document.querySelector("shipping").style.display);
+    }
+  }, 5000);
+  //180000)
+  setTimeout(function myFinish() {
+    if (document.querySelector(".finish").style.display == "block") {
+      document.getElementById("time-warner2").style.display = "block";
+    }
+  }, 8000);
+  //240000)
+  setTimeout(function myShipp() {
+    if (document.querySelector(".finished-order").style.display == "none") {
+      location.reload();
+    }
+  }, 12000);
+}
+timing();
