@@ -4,11 +4,15 @@
 }
 
 body {
+    position: relative;
     box-sizing: border-box;
     margin: 0 auto;
-    border: 1px solid black;
     width: 80%;
-    height: 100%;
+    background: url(../images/background.jpg);
+}
+
+.container {
+    background-color: white;
 }
 
 
@@ -17,13 +21,21 @@ body {
 header {
     height: 120px;
     background-color: lightgray;
-    margin-bottom: 5%;
     background-color: black;
     color: white;
     display: flex;
     justify-content: center;
     font-weight: bold;
     align-items: center;
+}
+
+.oval {
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    height: 102px;
+    width: 80%;
+    background: black;
 }
 
 
@@ -48,14 +60,15 @@ header {
 }
 
 .profile {
-    margin: 5%;
+    margin: 0 5% 10% 5%;
     font-family: sans-serif;
-    display: none;
+    padding-bottom: 40px;
 }
 
 .menu {
     display: flex;
     justify-content: center;
+    padding-top: 5%;
 }
 
 .breadcrumb {
@@ -105,11 +118,7 @@ header {
     background: linear-gradient(#333, #000);
 }
 
-.breadcrumb a.active:after
-/*,
-.breadcrumb a:hover:after */
-
-{
+.breadcrumb a.active:after {
     background: #333;
     background: linear-gradient(135deg, #333, #000);
 }
@@ -213,6 +222,10 @@ button {
     cursor: pointer;
 }
 
+.is-hidden {
+    display: none !important;
+}
+
 
 /* FIN INPUTS COMMON FORM */
 
@@ -244,7 +257,7 @@ button {
 
 .address {
     margin-left: 5%;
-    display: none;
+    padding: 0px 0px 170px 0px;
 }
 
 
@@ -266,6 +279,7 @@ select {
 .product {
     display: flex;
     justify-content: space-around;
+    padding: 14% 0;
 }
 
 .product-left {
@@ -429,22 +443,9 @@ select {
 /* SECTION SHIPPING */
 
 .shipping {
-    display: none;
-}
-
-.transations-divs {
-    animation: slide 1s linear;
-}
-
-@keyframes slide {
-    from {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(150%);
-        opacity: 0;
-    }
+    display: block;
+    padding: 0px 39px 60px 40px;
+    margin-bottom: 50px;
 }
 
 .display-none {
@@ -470,15 +471,17 @@ select {
     background-color: #b81515;
     height: 6em;
     padding: 0.5em 1em 1.5em 2em;
-    top: 3%;
-    right: 3%;
+    /*top: 3%;
+                        right: 3%;
+                        */
+    opacity: 0;
     border-radius: 25%;
     color: white;
     box-shadow: 0 10px 6px -6px grey;
 }
 
 .time-shipping:before {
-    content: '';
+    content: "";
     position: absolute;
     z-index: -1;
     width: 80px;
@@ -519,6 +522,26 @@ select {
     padding-left: 5px;
 }
 
+.label-gift {
+    display: block;
+}
+
+input.image-add-file {
+    background: url(./images-solid.svg);
+    background-size: 50px 20px;
+    background-repeat: no-repeat;
+    background-position: 75% 5px;
+    border: 1px solid red;
+    cursor: pointer;
+    height: 34px;
+    width: 23%;
+    line-height: 4px;
+    font-weight: bold;
+    background-color: #b81515;
+    color: white;
+    padding-left: 0px;
+}
+
 .buttons-form {
     float: left;
     clear: both;
@@ -534,7 +557,7 @@ select {
     width: 30px;
     height: 20px;
     margin: 20px 10px 10px 0;
-    vertical-align: -5PX;
+    vertical-align: -5px;
 }
 
 #error-shipping {
@@ -558,12 +581,13 @@ select {
 /*Finish Div*/
 
 .finish {
-    display: none;
+    /* display: none;*/
 }
 
 .background-div {
     background-color: lightgrey;
-    padding: 20px 80px;
+    padding: 110px 80px 70px 80px;
+    margin-bottom: 80px;
 }
 
 .div-flex {
@@ -607,6 +631,9 @@ footer {
     background-color: black;
     font-weight: bold;
     color: white;
+    position: fixed;
+    width: 80%;
+    bottom: 0;
 }
 
 
