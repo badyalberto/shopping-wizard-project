@@ -602,6 +602,50 @@ select {
   padding: 30px;
 }
 
+.finished-order {
+  display: none;
+  margin-bottom: 30px;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+}
+.thanks {
+  width: 130%;
+  color: white;
+  font-size: 35px;
+  margin: 20px 0;
+  animation-name: thanks;
+  animation-duration: 7s;
+  animation-iteration-count: infinite;
+  position: relative;
+}
+
+@keyframes thanks {
+  0% {
+    right: -150px;
+  }
+  15% {
+    right: -100px;
+  }
+  30% {
+    right: -50px;
+  }
+  45% {
+    right: 0px;
+  }
+  60% {
+    right: 50px;
+  }
+  75% {
+    right: 100px;
+  }
+  90% {
+    right: 150px;
+  }
+  100% {
+    right: 200px;
+  }
+
 /* FIN FINISH DIV*/
 
 /* FOOTER */
